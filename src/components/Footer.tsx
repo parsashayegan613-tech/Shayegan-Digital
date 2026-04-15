@@ -38,22 +38,10 @@ export default function Footer() {
         </h1>
       </div>
 
-      <div className="flex justify-between items-center px-[52px] py-8 border-t border-[rgba(255,255,255,0.06)] max-lg:flex-col-reverse max-lg:gap-6 max-lg:px-[24px]">
-        <div className="font-[family-name:var(--font-dm-mono)] text-[.55rem] text-white/30 tracking-[.1em]">
+      <div className="flex justify-center items-center px-[52px] py-8 border-t border-[rgba(255,255,255,0.06)] max-lg:px-[24px]">
+        <div className="font-[family-name:var(--font-dm-mono)] text-[.55rem] text-white/30 tracking-[.1em] text-center">
           © {new Date().getFullYear()} SHAYEGAN DIGITAL. ALL RIGHTS RESERVED.
         </div>
-        <ul className="flex gap-8 list-none m-0 p-0">
-          {["Twitter", "LinkedIn", "Instagram"].map((link) => (
-            <li key={link}>
-              <a 
-                href="#" 
-                className="text-white/40 no-underline font-[family-name:var(--font-dm-mono)] text-[.6rem] tracking-[.15em] uppercase transition-colors duration-200 hover:text-[var(--gold)]"
-              >
-                {link}
-              </a>
-            </li>
-          ))}
-        </ul>
       </div>
     </footer>
   );
