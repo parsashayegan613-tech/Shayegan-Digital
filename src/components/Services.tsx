@@ -5,7 +5,7 @@ import { useState } from "react";
 const services = [
   {
     n: "01",
-    t: "Web Development",
+    t: "A website that ranks while you sleep",
     d: "I build your website from scratch — no drag-and-drop templates or bloated page builders. The result? A site that loads fast, looks stunning on every device, and actually shows up when people search for your business on Google.",
     f: [
       "Lightning-fast pages that Google loves",
@@ -17,7 +17,7 @@ const services = [
   },
   {
     n: "02",
-    t: "E-Commerce",
+    t: "An online store that sells at 2am",
     d: "Online stores designed to make buying feel effortless. I focus on smooth checkout flows, beautiful product pages, and the kind of speed that keeps shoppers from bouncing to a competitor.",
     f: [
       "Professional online store setup",
@@ -29,7 +29,7 @@ const services = [
   },
   {
     n: "03",
-    t: "AI Automation",
+    t: "Stop losing leads after hours",
     d: "Stop wasting hours on repetitive tasks. I set up smart AI tools that handle customer questions, route leads to the right inbox, send follow-up emails automatically, and free up your team to focus on real work.",
     f: [
       "AI chatbots trained on your business info",
@@ -63,9 +63,9 @@ export default function Services() {
           What I Do
         </div>
         <h2 className="font-[family-name:var(--font-playfair)] text-[clamp(3rem,6vw,5.5rem)] font-bold text-[var(--ink)] leading-[1.1] tracking-[-.02em] max-w-[800px]">
-          Everything your business needs{" "}
+          Most agency websites look good.{" "}
           <span className="italic font-normal text-[var(--ink-light)]">
-            to grow online.
+            Mine make money.
           </span>
         </h2>
       </div>

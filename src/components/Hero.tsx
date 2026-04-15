@@ -69,7 +69,7 @@ export default function Hero() {
 
       <div className="flex flex-col justify-center px-[52px] py-[60px] pb-[80px] relative z-2 max-lg:px-6 max-lg:py-10 max-lg:pb-16">
         <p className="inline-flex items-center gap-[10px] font-[family-name:var(--font-dm-mono)] text-[.58rem] tracking-[.2em] uppercase text-[var(--gold)] mb-9 opacity-0 animate-[fup_.7s_cubic-bezier(.16,1,.3,1)_.2s_forwards] before:content-[''] before:w-7 before:h-[1px] before:bg-[var(--gold)]">
-          Edmonton Digital Agency &nbsp;/&nbsp; Est. 2026
+          Edmonton Digital Agency &nbsp;/&nbsp; Local Expertise
         </p>
         <h1 className="cursor-blend font-[family-name:var(--font-playfair)] text-[clamp(3.8rem,7.5vw,8rem)] font-black leading-[.92] tracking-[-.03em] text-[var(--ink)] max-lg:text-[clamp(3rem,12vw,5.5rem)] max-sm:text-[clamp(2.6rem,14vw,4rem)]">
           <span className="block overflow-clip">
@@ -87,24 +87,24 @@ export default function Hero() {
           </span>
         </h1>
         <p className="mt-10 text-[.88rem] font-normal leading-[1.8] text-[var(--ink-mid)] max-w-[400px] opacity-0 animate-[fup_.8s_cubic-bezier(.16,1,.3,1)_.9s_forwards]">
-          I help businesses get found on Google, look professional online, and turn visitors into paying customers. 
+          I build high-performance websites for Edmonton businesses that rank, convert, and scale. 
           Everything is custom-designed and built from scratch. No templates. No hidden fees. No ghosting after launch.
         </p>
         <div className="mt-11 flex items-center gap-6 flex-wrap opacity-0 animate-[fup_.8s_cubic-bezier(.16,1,.3,1)_1.05s_forwards]">
           <MagneticButton>
             <a
-              href="#our-work"
+              href="#contact"
               className="font-[family-name:var(--font-dm-mono)] text-[.65rem] tracking-[.14em] uppercase text-[var(--white)] bg-[var(--ink)] px-[34px] py-[15px] no-underline block transition-all duration-250 ease-[cubic-bezier(.16,1,.3,1)] hover:bg-[var(--gold)] hover:-translate-y-[2px]"
             >
-              Featured Work
+              Book a Free Strategy Call
             </a>
           </MagneticButton>
           <MagneticButton>
             <a
-              href="#contact"
-              className="font-[family-name:var(--font-dm-mono)] text-[.65rem] tracking-[.14em] uppercase text-[var(--ink-light)] no-underline flex items-center gap-2 py-[15px] px-[20px] transition-colors duration-200 after:content-['↗'] after:text-[.9rem] after:transition-transform after:duration-300 after:ease-[cubic-bezier(.16,1,.3,1)] hover:text-[var(--ink)] hover:after:translate-x-[3px] hover:after:-translate-y-[3px]"
+              href="#our-work"
+              className="font-[family-name:var(--font-dm-mono)] text-[.65rem] tracking-[.14em] uppercase text-[var(--ink-light)] no-underline flex items-center gap-2 py-[15px] px-[20px] transition-colors duration-200 after:content-['↓'] after:text-[.9rem] after:transition-transform after:duration-300 after:ease-[cubic-bezier(.16,1,.3,1)] hover:text-[var(--ink)] hover:after:translate-y-[3px]"
             >
-              Book a Free Strategy Call
+              Featured Work
             </a>
           </MagneticButton>
         </div>
