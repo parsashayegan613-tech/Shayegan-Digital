@@ -1,10 +1,10 @@
 import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
 
-// Make sure to add RESEND_API_KEY to your .env.local file
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export async function POST(req: Request) {
+  // Move inside so Next.js doesn't crash during static build analysis
+  const resend = new Resend(process.env.RESEND_API_KEY);
+  
   try {
     const { name, email, timeline, details } = await req.json();
 
