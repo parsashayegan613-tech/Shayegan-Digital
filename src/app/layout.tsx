@@ -24,14 +24,14 @@ const dmMono = DM_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://shayegandigital.com"),
+  metadataBase: new URL("https://shayegandigital.ca"),
   title: "Shayegan Digital | Edmonton Web Design Agency",
   description: "Edmonton's premium web design agency. We build custom, high-converting websites, AI automations, and digital marketing strategies for local businesses.",
   keywords: ["Edmonton Web Design", "Web Design Edmonton", "Web Agency Edmonton", "Custom Website Builder", "SEO Edmonton", "Digital Marketing Alberta"],
   openGraph: {
     title: "Shayegan Digital | Premium Web Design Agency",
     description: "Edmonton's premium web design agency. We build custom, high-converting websites and digital marketing strategies that actually grow businesses.",
-    url: 'https://shayegandigital.com',
+    url: 'https://shayegandigital.ca',
     siteName: 'Shayegan Digital',
     locale: 'en_CA',
     type: 'website',
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     description: "Edmonton's premium web design agency. We build custom, high-converting websites for businesses.",
   },
   alternates: {
-    canonical: "https://shayegandigital.com",
+    canonical: "https://shayegandigital.ca",
   }
 };
 

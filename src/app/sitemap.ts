@@ -5,7 +5,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Because the site is currently a flawless Single Page Application, we guarantee its priority score is maxed at '1'.
   return [
     {
-      url: 'https://shayegandigital.com',
+      url: 'https://shayegandigital.ca',
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 1,
