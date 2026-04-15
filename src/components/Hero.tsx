@@ -87,7 +87,7 @@ export default function Hero() {
           </span>
         </h1>
         <p className="mt-10 text-[.88rem] font-normal leading-[1.8] text-[var(--ink-mid)] max-w-[400px] opacity-0 animate-[fup_.8s_cubic-bezier(.16,1,.3,1)_.9s_forwards]">
-          I build high-performance websites for Edmonton businesses that rank, convert, and scale. 
+          I build high-performance websites for Edmonton businesses that rank, convert, and scale, starting at $800. 
           Everything is custom-designed and built from scratch. No templates. No hidden fees. No ghosting after launch.
         </p>
         <div className="mt-11 flex items-center gap-6 flex-wrap opacity-0 animate-[fup_.8s_cubic-bezier(.16,1,.3,1)_1.05s_forwards]">
