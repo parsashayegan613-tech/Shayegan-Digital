@@ -1,6 +1,7 @@
 import Nav from "@/components/Nav";
 import Marquee from "@/components/Marquee";
 import Hero from "@/components/Hero";
+import TrustedBy from "@/components/TrustedBy";
 import Stats from "@/components/Stats";
 import Services from "@/components/Services";
 import Portfolio from "@/components/Portfolio";
@@ -21,6 +22,7 @@ export default function Home() {
       <Nav />
       <Marquee />
       <Hero />
+      <TrustedBy />
       <Stats />
       <Services />
       <Portfolio />

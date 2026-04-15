@@ -1,7 +1,3 @@
-"use client";
-
-import { FormEvent, useRef, useState } from "react";
-
 export default function Contact() {
   return (
     <section id="contact" className="py-[140px] bg-[var(--cream)] relative max-lg:py-[100px]">
