@@ -31,12 +31,12 @@ export default function Nav() {
         <div className="flex items-center gap-4">
           <div className="max-lg:hidden">
             <MagneticButton>
-              <Link
+              <a
                 href="#contact"
                 className="block font-[family-name:var(--font-dm-mono)] text-[.6rem] tracking-[.14em] uppercase text-[var(--white)] bg-[var(--ink)] px-[22px] py-[10px] transition-colors duration-250 hover:bg-[var(--gold)]"
               >
                 Free Strategy Call
-              </Link>
+              </a>
             </MagneticButton>
           </div>
           

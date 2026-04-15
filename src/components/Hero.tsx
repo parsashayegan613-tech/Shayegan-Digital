@@ -102,7 +102,7 @@ export default function Hero() {
           <MagneticButton>
             <a
               href="#contact"
-              className="font-[family-name:var(--font-dm-mono)] text-[.65rem] tracking-[.14em] uppercase text-[var(--ink-light)] no-underline flex items-center gap-2 p-2 -m-2 transition-colors duration-200 after:content-['↗'] after:text-[.9rem] after:transition-transform after:duration-300 after:ease-[cubic-bezier(.16,1,.3,1)] hover:text-[var(--ink)] hover:after:translate-x-[3px] hover:after:-translate-y-[3px]"
+              className="font-[family-name:var(--font-dm-mono)] text-[.65rem] tracking-[.14em] uppercase text-[var(--ink-light)] no-underline flex items-center gap-2 py-[15px] px-[20px] transition-colors duration-200 after:content-['↗'] after:text-[.9rem] after:transition-transform after:duration-300 after:ease-[cubic-bezier(.16,1,.3,1)] hover:text-[var(--ink)] hover:after:translate-x-[3px] hover:after:-translate-y-[3px]"
             >
               Book a Free Strategy Call
             </a>
