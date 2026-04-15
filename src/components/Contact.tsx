@@ -21,9 +21,12 @@ export default function Contact() {
              <span>Find a time on my calendar</span>
              <span className="text-[1.2rem] transition-transform duration-300 group-hover:translate-x-2">→</span>
            </a>
-           <p className="mt-5 font-[family-name:var(--font-dm-mono)] text-[.55rem] tracking-[.1em] uppercase text-[var(--ink-light)]">
-             Takes less than 60 seconds.
-           </p>
+           <div className="mt-6 flex items-center gap-3">
+             <span className="w-[6px] h-[6px] rounded-full bg-green-500 animate-pulse"></span>
+             <p className="font-[family-name:var(--font-dm-mono)] text-[.55rem] tracking-[.1em] uppercase text-[var(--ink-light)]">
+               Currently accepting 2 new projects for May 2026
+             </p>
+           </div>
         </div>
       </div>
     </section>
