@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Playfair_Display, Syne, DM_Mono } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
+import { Analytics } from "@vercel/analytics/react";
 
 const playfair = Playfair_Display({
   variable: "--font-playfair",
@@ -40,6 +41,7 @@ export default function RootLayout({
     >
       <body className="font-[family-name:var(--font-syne)]">
         <SmoothScroll>{children}</SmoothScroll>
+        <Analytics />
       </body>
     </html>
   );
