@@ -59,6 +59,30 @@ export default function RootLayout({
       <body className="font-[family-name:var(--font-syne)]">
         <SmoothScroll>{children}</SmoothScroll>
         <Analytics />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "ProfessionalService",
+              "name": "Shayegan Digital",
+              "url": "https://shayegandigital.ca",
+              "telephone": "+17809091213",
+              "email": "admin@shayegandigital.ca",
+              "priceRange": "$$",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Edmonton",
+                "addressRegion": "AB",
+                "addressCountry": "CA"
+              },
+              "description": "Edmonton's premium web design agency. We build custom, high-converting websites, AI automations, and digital marketing strategies for local businesses.",
+              "sameAs": [
+                "https://shayegandigital.ca"
+              ]
+            })
+          }}
+        />
       </body>
     </html>
   );
