@@ -73,13 +73,19 @@ export default function Services() {
       <div className="border-t border-black/[0.08] rv">
         {services.map((s, i) => {
           const isActive = active === i;
+          const panelId = `service-panel-${i}`;
           return (
             <div
               key={i}
-              className="border-b border-black/[0.08] px-[52px] py-[50px] cursor-pointer transition-colors duration-300 hover:bg-black/[0.015] max-lg:px-6"
-              onClick={() => setActive(isActive ? null : i)}
+              className="border-b border-black/[0.08] px-[52px] py-[50px] transition-colors duration-300 hover:bg-black/[0.015] max-lg:px-6"
             >
-              <div className="flex items-center justify-between">
+              <button
+                type="button"
+                aria-expanded={isActive}
+                aria-controls={panelId}
+                onClick={() => setActive(isActive ? null : i)}
+                className="w-full flex items-center justify-between text-left cursor-pointer"
+              >
                 <div className="flex items-baseline gap-10 max-lg:gap-5">
                   <span className="font-[family-name:var(--font-dm-mono)] text-[.6rem] text-[var(--gold)]">
                     {s.n}
@@ -96,9 +102,10 @@ export default function Services() {
                     ${isActive ? "after:rotate-90 after:scale-0" : ""}
                   `}
                 ></div>
-              </div>
+              </button>
 
               <div
+                id={panelId}
                 className={`grid transition-all duration-500 ease-[cubic-bezier(.16,1,.3,1)]
                   ${isActive ? "[grid-template-rows:1fr] mt-10 opacity-100" : "[grid-template-rows:0fr] mt-0 opacity-0"}
                 `}

@@ -3,6 +3,7 @@
 import { useCallback, useRef, useState, useEffect } from "react";
 import MagneticButton from "./MagneticButton";
 import SplitText from "./SplitText";
+import TrackedLink from "./TrackedLink";
 
 const words = ["websites", "brands", "systems", "results"];
 
@@ -92,20 +93,24 @@ export default function Hero() {
         </p>
         <div className="mt-11 flex items-center gap-6 flex-wrap opacity-0 animate-[fup_.8s_cubic-bezier(.16,1,.3,1)_1.05s_forwards]">
           <MagneticButton>
-            <a
+            <TrackedLink
               href="#contact"
+              eventName="cta_clicked"
+              eventProperties={{ location: "hero", label: "Book a Free Strategy Call" }}
               className="font-[family-name:var(--font-dm-mono)] text-[.65rem] tracking-[.14em] uppercase text-[var(--white)] bg-[var(--ink)] px-[34px] py-[15px] no-underline block transition-all duration-250 ease-[cubic-bezier(.16,1,.3,1)] hover:bg-[var(--gold)] hover:-translate-y-[2px]"
             >
               Book a Free Strategy Call
-            </a>
+            </TrackedLink>
           </MagneticButton>
           <MagneticButton>
-            <a
+            <TrackedLink
               href="#featured-work"
+              eventName="cta_clicked"
+              eventProperties={{ location: "hero", label: "Featured Work" }}
               className="font-[family-name:var(--font-dm-mono)] text-[.65rem] tracking-[.14em] uppercase text-[var(--ink-light)] no-underline flex items-center gap-2 py-[15px] px-[20px] transition-colors duration-200 after:content-['↓'] after:text-[.9rem] after:transition-transform after:duration-300 after:ease-[cubic-bezier(.16,1,.3,1)] hover:text-[var(--ink)] hover:after:translate-y-[3px]"
             >
               Featured Work
-            </a>
+            </TrackedLink>
           </MagneticButton>
         </div>
       </div>

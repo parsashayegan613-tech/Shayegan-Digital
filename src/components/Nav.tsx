@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import MagneticButton from "./MagneticButton";
+import TrackedLink from "./TrackedLink";
 
 export default function Nav() {
   const [isOpen, setIsOpen] = useState(false);
@@ -31,12 +32,14 @@ export default function Nav() {
         <div className="flex items-center gap-4">
           <div className="max-lg:hidden">
             <MagneticButton>
-              <a
+              <TrackedLink
                 href="#contact"
+                eventName="cta_clicked"
+                eventProperties={{ location: "nav", label: "Free Strategy Call" }}
                 className="block font-[family-name:var(--font-dm-mono)] text-[.6rem] tracking-[.14em] uppercase text-[var(--white)] bg-[var(--ink)] px-[22px] py-[10px] transition-colors duration-250 hover:bg-[var(--gold)]"
               >
                 Free Strategy Call
-              </a>
+              </TrackedLink>
             </MagneticButton>
           </div>
           
@@ -74,14 +77,16 @@ export default function Nav() {
             </li>
           ))}
           <li className="mt-8 flex justify-center w-full overflow-hidden p-2">
-            <Link
+            <TrackedLink
               href="#contact"
               onClick={() => setIsOpen(false)}
+              eventName="cta_clicked"
+              eventProperties={{ location: "mobile_nav", label: "Free Strategy Session" }}
               style={{ transitionDelay: `${isOpen ? 350 : 0}ms` }}
               className={`block font-[family-name:var(--font-dm-mono)] text-[.7rem] tracking-[.15em] uppercase text-[var(--ink)] bg-[var(--gold)] px-[36px] py-[18px] transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${isOpen ? 'translate-y-0' : 'translate-y-[120%]'}`}
             >
               Free Strategy Session
-            </Link>
+            </TrackedLink>
           </li>
         </ul>
       </div>

@@ -65,7 +65,6 @@ export default function ParallaxImage({
           priority={priority}
           className={`object-cover ${imageClassName}`}
           sizes="(max-width: 1024px) 100vw, 80vw"
-          unoptimized={true}
         />
         {/* Subtle dark overlay for contrast */}
         <div className="absolute inset-0 bg-black/5 pointer-events-none transition-colors duration-500 group-hover:bg-black/[0.02]" />

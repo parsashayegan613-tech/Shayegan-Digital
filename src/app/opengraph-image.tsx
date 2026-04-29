@@ -1,7 +1,8 @@
 import { ImageResponse } from 'next/og';
+import { siteConfig } from '@/lib/site';
 
 export const runtime = 'edge';
-export const alt = 'Shayegan Digital - Edmonton Web Agency';
+export const alt = `${siteConfig.name} - Edmonton Web Agency`;
 export const size = {
   width: 1200,
   height: 630,
@@ -25,10 +26,10 @@ export default async function Image() {
       >
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px' }}>
           <span style={{ color: '#fdfcf9', fontSize: 96, fontWeight: 900, letterSpacing: '-0.02em', fontFamily: 'serif' }}>
-            Shayegan
+          Shayegan
           </span>
           <span style={{ color: '#c9a96e', fontSize: 96, fontStyle: 'italic', marginLeft: 15, fontFamily: 'serif' }}>
-            Digital
+          Digital
           </span>
         </div>
         <div
@@ -56,7 +57,7 @@ export default async function Image() {
             fontFamily: 'sans-serif',
           }}
         >
-          shayegandigital.com
+          {siteConfig.domain}
         </div>
       </div>
     ),

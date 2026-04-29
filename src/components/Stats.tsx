@@ -4,16 +4,19 @@ import { useEffect, useRef, useState } from "react";
 
 function CountUp({ target }: { target: number }) {
   const ref = useRef<HTMLSpanElement>(null);
-  const [value, setValue] = useState(0);
+  const [value, setValue] = useState(target);
   const started = useRef(false);
 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
     const obs = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting && !started.current) {
           started.current = true;
+          setValue(0);
           const start = performance.now();
           const tick = (now: number) => {
             const p = Math.min((now - start) / 1600, 1);
@@ -48,8 +51,9 @@ export default function Stats() {
         <div 
           key={i} 
           className={`px-8 border-r border-white/10 first:pl-0 last:border-r-0 max-lg:border-r-0 max-lg:border-b max-lg:py-5 max-lg:px-0 max-lg:odd:border-r max-lg:odd:pr-5 max-lg:[&:nth-child(3)]:border-b-0 max-lg:[&:nth-child(4)]:border-b-0 rv d${i + 1}`}
+          aria-label={`${s.target}${s.suffix} ${s.label.replace("\n", " ")}`}
         >
-          <div className="font-[family-name:var(--font-playfair)] text-[3rem] font-bold text-white leading-none mb-2">
+          <div className="font-[family-name:var(--font-playfair)] text-[3rem] font-bold text-white leading-none mb-2" aria-hidden="true">
             <CountUp target={s.target} />
             <span className="text-[var(--gold)] text-[1.8rem] ml-1">{s.suffix}</span>
           </div>

@@ -1,4 +1,5 @@
 import { MetadataRoute } from 'next';
+import { siteConfig } from '@/lib/site';
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -7,6 +8,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: '/api/', // Keep Google web crawlers out of our backend API
     },
-    sitemap: 'https://shayegandigital.ca/sitemap.xml',
+    sitemap: `${siteConfig.url}/sitemap.xml`,
   };
 }

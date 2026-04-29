@@ -12,7 +12,10 @@ export default function Marquee() {
   const chunk = [...words, ...words, ...words, ...words];
 
   return (
-    <div className="fixed top-[76px] left-0 right-0 z-[801] flex flex-nowrap overflow-hidden bg-[var(--gold)] py-[6px] border-b border-black/[0.07] max-lg:top-[68px] rv d1">
+    <div
+      aria-hidden="true"
+      className="fixed top-[76px] left-0 right-0 z-[801] flex flex-nowrap overflow-hidden bg-[var(--gold)] py-[6px] border-b border-black/[0.07] max-lg:top-[68px] rv d1"
+    >
       <div className="flex w-max animate-[mq_120s_linear_infinite]">
         {[1, 2].map((i) => (
           <div key={i} className="flex">

@@ -13,12 +13,14 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
 import RevealObserver from "@/components/RevealObserver";
+import SectionDepthTracker from "@/components/SectionDepthTracker";
 
 export default function Home() {
   return (
     <>
 
       <RevealObserver />
+      <SectionDepthTracker />
       <Nav />
       <Marquee />
       <Hero />

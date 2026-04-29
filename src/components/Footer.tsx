@@ -1,8 +1,8 @@
 "use client";
 
-import Link from "next/link";
 import MagneticButton from "./MagneticButton";
 import SplitText from "./SplitText";
+import TrackedLink from "./TrackedLink";
 
 export default function Footer() {
   return (
@@ -19,13 +19,15 @@ export default function Footer() {
         </div>
         <div className="flex flex-col justify-end max-lg:mt-4 max-lg:mb-6">
           <MagneticButton>
-            <Link
+            <TrackedLink
               href="#contact"
+              eventName="cta_clicked"
+              eventProperties={{ location: "footer", label: "Start your project" }}
               className="inline-flex items-center gap-4 bg-[var(--gold)] text-[var(--ink)] px-[38px] py-[22px] rounded-[100px] font-[family-name:var(--font-dm-mono)] text-[.65rem] tracking-[.15em] uppercase transition-all duration-300 hover:bg-[var(--white)] hover:-translate-y-1 hover:shadow-[0_15px_40px_rgba(201,169,110,0.2)] group"
             >
               Start your project
               <span className="text-[1.1rem] transition-transform duration-300 ease-[cubic-bezier(.16,1,.3,1)] group-hover:translate-x-1 group-hover:-translate-y-1">↗</span>
-            </Link>
+            </TrackedLink>
           </MagneticButton>
         </div>
       </div>

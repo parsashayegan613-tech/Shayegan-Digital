@@ -42,26 +42,29 @@ export default function SplitText({
 
   return (
     <span ref={ref} className={`st-wrap ${className}`}>
-      {words.map((word, wi) => (
-        <span key={wi} className="st-word">
-          {word.split("").map((char, ci) => {
-            const globalIndex =
-              words.slice(0, wi).reduce((acc, w) => acc + w.length, 0) + ci;
-            return (
-              <span
-                key={ci}
-                className="st-char"
-                style={{
-                  transitionDelay: `${delay + globalIndex * stagger}ms`,
-                }}
-              >
-                {char}
-              </span>
-            );
-          })}
-          {wi < words.length - 1 && <span className="st-char st-space">&nbsp;</span>}
-        </span>
-      ))}
+      <span className="sr-only">{children}</span>
+      <span aria-hidden="true">
+        {words.map((word, wi) => (
+          <span key={wi} className="st-word">
+            {word.split("").map((char, ci) => {
+              const globalIndex =
+                words.slice(0, wi).reduce((acc, w) => acc + w.length, 0) + ci;
+              return (
+                <span
+                  key={ci}
+                  className="st-char"
+                  style={{
+                    transitionDelay: `${delay + globalIndex * stagger}ms`,
+                  }}
+                >
+                  {char}
+                </span>
+              );
+            })}
+            {wi < words.length - 1 && <span className="st-char st-space">&nbsp;</span>}
+          </span>
+        ))}
+      </span>
     </span>
   );
 }
