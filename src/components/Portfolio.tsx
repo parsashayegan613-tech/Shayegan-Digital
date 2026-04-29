@@ -5,7 +5,7 @@ import TrackedLink from "./TrackedLink";
 
 const projects = [
   {
-    img: "/village-ida.jpg",
+    img: "/village-ida.png",
     cat: "Healthcare",
     title: "Village IDA Pharmacy",
     desc: "Full digital platform with online prescription refills, appointment booking, and patient management.",
@@ -13,7 +13,7 @@ const projects = [
     proof: ["Prescription refill flow", "Appointment booking", "Local SEO foundation"],
   },
   {
-    img: "/invitvo.jpg",
+    img: "/invitvo.png",
     cat: "Pharmaceutical",
     title: "Invitvo",
     desc: "Research compound catalog and e-commerce portal for a Canadian pharmaceutical company.",
@@ -53,6 +53,7 @@ export default function Portfolio() {
                 src={p.img} 
                 alt={p.title} 
                 fill
+                unoptimized
                 className="object-cover object-top transition-transform duration-700 ease-[cubic-bezier(.16,1,.3,1)] group-hover:scale-[1.03]" 
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
