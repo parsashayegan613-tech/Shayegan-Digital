@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Syne, DM_Mono } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 import { Analytics } from "@vercel/analytics/react";
@@ -115,6 +116,18 @@ export default function RootLayout({
       className={`${playfair.variable} ${syne.variable} ${dmMono.variable}`}
     >
       <body className="font-[family-name:var(--font-syne)]">
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${siteConfig.gaMeasurementId}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){window.dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${siteConfig.gaMeasurementId}');
+          `}
+        </Script>
         <SmoothScroll>{children}</SmoothScroll>
         <Analytics />
         <script

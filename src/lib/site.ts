@@ -3,6 +3,7 @@ export const siteConfig = {
   url: "https://www.shayegandigital.ca",
   domain: "www.shayegandigital.ca",
   image: "https://www.shayegandigital.ca/opengraph-image",
+  gaMeasurementId: "G-V2PT4J39B8",
   email: "admin@shayegandigital.ca",
   phone: "+17809091213",
   calendlyUrl: "https://calendly.com/admin-shayegandigital/30min",
