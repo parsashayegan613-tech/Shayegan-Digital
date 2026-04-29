@@ -2,6 +2,7 @@ export const siteConfig = {
   name: "Shayegan Digital",
   url: "https://www.shayegandigital.ca",
   domain: "www.shayegandigital.ca",
+  image: "https://www.shayegandigital.ca/opengraph-image",
   email: "admin@shayegandigital.ca",
   phone: "+17809091213",
   calendlyUrl: "https://calendly.com/admin-shayegandigital/30min",
