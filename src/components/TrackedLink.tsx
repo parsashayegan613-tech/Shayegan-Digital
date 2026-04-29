@@ -1,9 +1,7 @@
 "use client";
 
 import type { AnchorHTMLAttributes, ReactNode } from "react";
-import { track } from "@vercel/analytics/react";
-
-type EventProperties = Record<string, string | number | boolean | null>;
+import { trackMarketingEvent, type EventProperties } from "@/lib/analytics";
 
 type TrackedLinkProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
   children: ReactNode;
@@ -22,7 +20,7 @@ export default function TrackedLink({
     <a
       {...props}
       onClick={(event) => {
-        track(eventName, eventProperties);
+        trackMarketingEvent(eventName, eventProperties);
         onClick?.(event);
       }}
     >

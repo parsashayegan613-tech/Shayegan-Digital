@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import { track } from "@vercel/analytics/react";
+import { trackMarketingEvent } from "@/lib/analytics";
 
 const trackedSections = [
   "home",
@@ -23,7 +23,7 @@ export default function SectionDepthTracker() {
           if (!entry.isIntersecting || seen.has(sectionId)) return;
 
           seen.add(sectionId);
-          track("section_viewed", { section_id: sectionId });
+          trackMarketingEvent("section_viewed", { section_id: sectionId });
 
           if (seen.size === trackedSections.length) {
             observer.disconnect();
