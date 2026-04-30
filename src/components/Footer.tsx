@@ -1,10 +1,14 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import MagneticButton from "./MagneticButton";
 import SplitText from "./SplitText";
 import TrackedLink from "./TrackedLink";
 
 export default function Footer() {
+  const pathname = usePathname();
+  const contactHref = pathname === "/" ? "#contact" : "/#contact";
+
   return (
     <footer className="bg-[var(--ink)] text-[var(--white)] pt-[100px] relative overflow-hidden z-10">
       <div className="px-[52px] max-lg:px-[24px] pb-[80px] grid grid-cols-[1fr_auto] max-lg:grid-cols-1 gap-10 items-end rv">
@@ -20,7 +24,7 @@ export default function Footer() {
         <div className="flex flex-col justify-end max-lg:mt-4 max-lg:mb-6">
           <MagneticButton>
             <TrackedLink
-              href="#contact"
+              href={contactHref}
               eventName="cta_clicked"
               eventProperties={{ location: "footer", label: "Start your project" }}
               className="inline-flex items-center gap-4 bg-[var(--gold)] text-[var(--ink)] px-[38px] py-[22px] rounded-[100px] font-[family-name:var(--font-dm-mono)] text-[.65rem] tracking-[.15em] uppercase transition-all duration-300 hover:bg-[var(--white)] hover:-translate-y-1 hover:shadow-[0_15px_40px_rgba(201,169,110,0.2)] group"

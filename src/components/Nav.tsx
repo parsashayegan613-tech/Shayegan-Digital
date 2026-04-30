@@ -1,12 +1,15 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 import MagneticButton from "./MagneticButton";
 import TrackedLink from "./TrackedLink";
 
 export default function Nav() {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
+  const anchorPrefix = pathname === "/" ? "" : "/";
   const links = ["Services", "Featured Work", "About"];
 
   return (
@@ -19,7 +22,7 @@ export default function Nav() {
           {links.map((item) => (
             <li key={item}>
               <a
-                href={`#${item.toLowerCase().replace(" ", "-")}`}
+                href={`${anchorPrefix}#${item.toLowerCase().replace(" ", "-")}`}
                 className="font-[family-name:var(--font-dm-mono)] text-[.6rem] tracking-[.18em] uppercase text-[var(--ink-light)] transition-colors duration-200 relative group hover:text-[var(--ink)]"
               >
                 {item}
@@ -33,7 +36,7 @@ export default function Nav() {
           <div className="max-lg:hidden">
             <MagneticButton>
               <TrackedLink
-                href="#contact"
+                href={`${anchorPrefix}#contact`}
                 eventName="cta_clicked"
                 eventProperties={{ location: "nav", label: "Free Strategy Call" }}
                 className="block font-[family-name:var(--font-dm-mono)] text-[.6rem] tracking-[.14em] uppercase text-[var(--white)] bg-[var(--ink)] px-[22px] py-[10px] transition-colors duration-250 hover:bg-[var(--gold)]"
@@ -67,7 +70,7 @@ export default function Nav() {
           {links.map((item, i) => (
             <li key={item} className="overflow-hidden p-2">
               <a
-                href={`#${item.toLowerCase().replace(" ", "-")}`}
+                href={`${anchorPrefix}#${item.toLowerCase().replace(" ", "-")}`}
                 onClick={() => setIsOpen(false)}
                 style={{ transitionDelay: `${isOpen ? 100 + (i * 60) : 0}ms` }}
                 className={`block font-[family-name:var(--font-playfair)] text-[2.6rem] font-bold text-[var(--white)] transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${isOpen ? 'translate-y-0' : 'translate-y-[120%]'}`}
@@ -78,7 +81,7 @@ export default function Nav() {
           ))}
           <li className="mt-8 flex justify-center w-full overflow-hidden p-2">
             <TrackedLink
-              href="#contact"
+              href={`${anchorPrefix}#contact`}
               onClick={() => setIsOpen(false)}
               eventName="cta_clicked"
               eventProperties={{ location: "mobile_nav", label: "Free Strategy Session" }}

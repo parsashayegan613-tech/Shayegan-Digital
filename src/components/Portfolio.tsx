@@ -2,29 +2,7 @@
 
 import Image from "next/image";
 import TrackedLink from "./TrackedLink";
-
-const projects = [
-  {
-    img: "/portfolio-village-ida.jpg",
-    cat: "Healthcare",
-    title: "Village IDA Pharmacy",
-    desc: "Full digital platform with online prescription refills, appointment booking, and patient management.",
-    url: "https://www.villageidapharmacy.com/",
-    outcome: "A local healthcare experience designed around refills, booking, and trust.",
-    scope: "Pharmacy platform",
-    proof: ["Prescription refill flow", "Appointment booking", "Local SEO foundation"],
-  },
-  {
-    img: "/portfolio-invitvo.jpg",
-    cat: "Pharmaceutical",
-    title: "Invitvo",
-    desc: "Research compound catalog and e-commerce portal for a Canadian pharmaceutical company.",
-    url: "https://www.invitvo.com/",
-    outcome: "A research-focused catalog that makes quote requests easier for technical buyers.",
-    scope: "Research commerce",
-    proof: ["Compound catalog", "Quote request pathway", "Research-focused UX"],
-  },
-];
+import { caseStudies } from "@/lib/case-studies";
 
 export default function Portfolio() {
   return (
@@ -45,23 +23,21 @@ export default function Portfolio() {
       </div>
 
       <div className="relative z-10 grid grid-cols-2 gap-10 px-[52px] max-lg:grid-cols-1 max-lg:px-6">
-        {projects.map((p, i) => (
+        {caseStudies.map((p, i) => (
           <TrackedLink
             key={i}
-            href={p.url}
-            target="_blank"
-            rel="noopener noreferrer"
+            href={`/case-studies/${p.slug}`}
             eventName="portfolio_clicked"
-            eventProperties={{ project: p.title, location: "featured_work" }}
+            eventProperties={{ project: p.title, location: "featured_work", destination: "case_study" }}
             className={`group block w-full relative rv ${i > 0 ? 'd2' : ''}`}
           >
             <div className="aspect-[16/10] relative overflow-hidden rounded-[6px] border border-white/[0.12] mb-6 bg-white/[0.04] transition-all duration-500 ease-[cubic-bezier(.16,1,.3,1)] shadow-[0_18px_70px_rgba(0,0,0,0.22)] group-hover:shadow-[0_28px_90px_rgba(0,0,0,0.35)] group-hover:-translate-y-1.5">
-              <Image 
-                src={p.img} 
-                alt={p.title} 
+              <Image
+                src={p.image}
+                alt={p.imageAlt}
                 fill
                 priority
-                className="object-cover object-top transition-transform duration-700 ease-[cubic-bezier(.16,1,.3,1)] group-hover:scale-[1.03]" 
+                className="object-cover object-top transition-transform duration-700 ease-[cubic-bezier(.16,1,.3,1)] group-hover:scale-[1.03]"
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500 ease-[cubic-bezier(.16,1,.3,1)]" />
@@ -74,15 +50,15 @@ export default function Portfolio() {
             <div className="pr-4">
               <div className="flex items-center justify-between gap-4 mb-3 max-sm:flex-col max-sm:items-start">
                 <h3 className="font-[family-name:var(--font-playfair)] text-[1.9rem] font-bold text-[var(--cream-dark)] leading-[1.2]">{p.title}</h3>
-                <div className="font-[family-name:var(--font-dm-mono)] text-[.58rem] tracking-[.14em] uppercase text-[var(--gold)] px-3 py-1.5 bg-white/[0.06] border border-white/[0.12] rounded-full">{p.cat}</div>
+                <div className="font-[family-name:var(--font-dm-mono)] text-[.58rem] tracking-[.14em] uppercase text-[var(--gold)] px-3 py-1.5 bg-white/[0.06] border border-white/[0.12] rounded-full">{p.category}</div>
               </div>
-              <p className="text-[.88rem] leading-[1.75] text-white/62 max-w-[500px] mb-4">{p.desc}</p>
+              <p className="text-[.88rem] leading-[1.75] text-white/62 max-w-[500px] mb-4">{p.summary}</p>
               <div className="mb-6 grid grid-cols-[auto_1fr] gap-x-4 gap-y-2 border-l border-[var(--gold)]/50 pl-4 max-sm:grid-cols-1">
                 <span className="font-[family-name:var(--font-dm-mono)] text-[.58rem] tracking-[.14em] uppercase text-white/52">{p.scope}</span>
                 <p className="text-[.8rem] leading-[1.7] text-white/72">{p.outcome}</p>
               </div>
               <ul className="mb-6 grid grid-cols-3 gap-2 max-sm:grid-cols-1">
-                {p.proof.map((item) => (
+                {p.deliverables.slice(0, 3).map((item) => (
                   <li key={item} className="font-[family-name:var(--font-dm-mono)] text-[.58rem] tracking-[.08em] uppercase text-white/58 border border-white/[0.1] bg-white/[0.04] px-3 py-2">
                     {item}
                   </li>
@@ -90,7 +66,7 @@ export default function Portfolio() {
               </ul>
               
               <div className="inline-flex items-center gap-2 font-[family-name:var(--font-dm-mono)] text-[.62rem] tracking-[.12em] uppercase text-white/45 transition-colors duration-300 group-hover:text-[var(--gold)]">
-                View Live Project <span className="text-[.8rem] transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">↗</span>
+                Read Case Study <span className="text-[.8rem] transition-transform duration-300 group-hover:translate-x-1">→</span>
               </div>
             </div>
           </TrackedLink>

@@ -1,8 +1,15 @@
 import { MetadataRoute } from 'next';
+import { caseStudies } from '@/lib/case-studies';
 import { siteConfig } from '@/lib/site';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  // We can expand this array when you start adding distinct pages (like /blog or /portfolio).
+  const caseStudyPages = caseStudies.map((study) => ({
+    url: `${siteConfig.url}/case-studies/${study.slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.8,
+  }));
+
   return [
     {
       url: siteConfig.url,
@@ -10,5 +17,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 1,
     },
+    ...caseStudyPages,
   ];
 }
