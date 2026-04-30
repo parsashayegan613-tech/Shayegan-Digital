@@ -59,7 +59,7 @@ export default function Services() {
   return (
     <section id="services" className="py-[160px] pb-[100px] max-lg:py-25 relative">
       <div className="px-[52px] max-lg:px-6 mb-20 rv">
-        <div className="font-[family-name:var(--font-dm-mono)] text-[.56rem] tracking-[.2em] uppercase text-[var(--gold)] mb-6">
+        <div className="eyebrow mb-6">
           What I Do
         </div>
         <h2 className="font-[family-name:var(--font-playfair)] text-[clamp(3rem,6vw,5.5rem)] font-bold text-[var(--ink)] leading-[1.1] tracking-[-.02em] max-w-[800px]">
@@ -128,7 +128,7 @@ export default function Services() {
                           </li>
                         ))}
                       </ul>
-                      <div className="mt-8 font-[family-name:var(--font-dm-mono)] text-[.56rem] tracking-[.18em] uppercase text-[var(--ink-light)]">
+                      <div className="mt-8 font-[family-name:var(--font-dm-mono)] text-[.62rem] tracking-[.12em] uppercase text-[var(--ink-mid)]">
                         {s.tier}
                       </div>
                     </div>

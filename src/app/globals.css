@@ -45,6 +45,15 @@ p {
   padding-bottom: 0.15em;
 }
 
+.eyebrow {
+  font-family: var(--font-dm-mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.16em;
+  line-height: 1.45;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
 /* Background Grain Layer — low z-index to avoid cursor interference */
 body::after {
   content: '';
@@ -107,4 +116,38 @@ body::after {
   background: var(--white);
   mix-blend-mode: difference;
   border-color: transparent;
+}
+
+@media (max-width: 640px) {
+  .eyebrow {
+    font-size: 0.66rem;
+    letter-spacing: 0.12em;
+  }
+
+  .rv,
+  .rl,
+  .rr {
+    transform: translateY(18px);
+    transition-duration: 0.6s;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.001ms !important;
+  }
+
+  .rv,
+  .rl,
+  .rr,
+  .st-char {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
 }

@@ -8,6 +8,7 @@ const tiers = [
     name: "Launch Site",
     price: "$800",
     desc: "A clean, professional website that gets your business online. Perfect for startups, freelancers, and local businesses that need a strong first impression.",
+    bestFor: "New businesses that need a polished launch without complex workflows.",
     features: [
       "Up to 5 custom-designed pages",
       "Mobile-responsive on all devices",
@@ -23,6 +24,7 @@ const tiers = [
     name: "Growth Site",
     price: "$2,000",
     desc: "A high-converting website built to rank on Google, capture leads, and actually grow your business. Includes advanced SEO and analytics.",
+    bestFor: "Most local businesses that want stronger Google visibility and tracked leads.",
     features: [
       "Up to 10 custom-designed pages",
       "Advanced SEO & speed optimization",
@@ -38,6 +40,7 @@ const tiers = [
     name: "Scale System",
     price: "$3,500+",
     desc: "The full digital system — a premium website with AI automations, e-commerce capabilities, and everything your business needs to scale online.",
+    bestFor: "Teams that need booking, commerce, automation, or custom business logic.",
     features: [
       "E-commerce or booking integration",
       "AI chatbot trained on your business",
@@ -54,7 +57,7 @@ export default function Pricing() {
   return (
     <section id="pricing" className="py-[140px] bg-[var(--cream)] max-lg:py-[100px]">
       <div className="px-[52px] mb-20 max-lg:px-6 rv">
-        <div className="font-[family-name:var(--font-dm-mono)] text-[.56rem] tracking-[.2em] uppercase text-[var(--gold)] mb-[24px]">Investment</div>
+        <div className="eyebrow mb-[24px]">Investment</div>
         <h2 className="font-[family-name:var(--font-playfair)] text-[clamp(3rem,6vw,5.5rem)] font-bold text-[var(--ink)] leading-[1.1] tracking-[-.02em] max-w-[800px]">
           Transparent <span className="italic font-normal text-[var(--ink-light)]">pricing.</span>
         </h2>
@@ -67,21 +70,24 @@ export default function Pricing() {
         {tiers.map((t, i) => (
           <div
             key={i}
-            className={`relative border p-12 rounded-[2px] flex flex-col rv d${i + 1} max-sm:p-8
+            className={`relative border rounded-[2px] flex flex-col rv d${i + 1} max-sm:p-8
               ${t.dark
                 ? "bg-[var(--ink)] border-white/[0.08]"
                 : "bg-[var(--white)] border-[var(--ink-faint)]"
               }
-              ${t.highlight ? "ring-2 ring-[var(--gold)] ring-offset-4 ring-offset-[var(--cream)]" : ""}
+              ${t.highlight
+                ? "p-12 pt-16 ring-2 ring-[var(--gold)] ring-offset-4 ring-offset-[var(--cream)] shadow-[0_28px_90px_rgba(12,12,10,0.24)] xl:-translate-y-5 xl:scale-[1.025]"
+                : "p-12 shadow-[0_12px_45px_rgba(12,12,10,0.04)]"
+              }
             `}
           >
             {t.highlight && (
-              <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[var(--gold)] text-[var(--ink)] font-[family-name:var(--font-dm-mono)] text-[.5rem] tracking-[.2em] uppercase px-4 py-[5px] rounded-full">
-                Recommended
+              <div className="absolute left-0 right-0 top-0 bg-[var(--gold)] text-[var(--ink)] font-[family-name:var(--font-dm-mono)] text-[.58rem] tracking-[.14em] uppercase px-5 py-3 text-center">
+                Recommended for most local businesses
               </div>
             )}
 
-            <div className={`font-[family-name:var(--font-dm-mono)] text-[.56rem] tracking-[.2em] uppercase mb-4 ${t.dark ? "text-[var(--gold)]" : "text-[var(--gold)]"}`}>
+            <div className={`eyebrow mb-4 ${t.dark ? "text-[var(--gold)]" : "text-[var(--gold)]"}`}>
               {t.tag}
             </div>
 
@@ -89,15 +95,24 @@ export default function Pricing() {
               {t.name}
             </h3>
 
-            <p className={`text-[.82rem] leading-[1.8] mb-8 max-w-[400px] ${t.dark ? "text-white/55" : "text-[var(--ink-mid)]"}`}>
+            <p className={`text-[.86rem] leading-[1.85] mb-8 max-w-[400px] ${t.dark ? "text-white/62" : "text-[var(--ink-mid)]"}`}>
               {t.desc}
             </p>
 
             <div className={`font-[family-name:var(--font-playfair)] text-[3rem] font-bold mb-10 leading-none ${t.dark ? "text-[var(--white)]" : "text-[var(--ink)]"}`}>
               {t.price}
-              <span className={`font-[family-name:var(--font-dm-mono)] text-[.55rem] font-normal block mt-1 tracking-widest uppercase ${t.dark ? "text-white/35" : "text-[var(--ink-light)]"}`}>
+              <span className={`font-[family-name:var(--font-dm-mono)] text-[.62rem] font-normal block mt-1 tracking-[.1em] uppercase ${t.dark ? "text-white/52" : "text-[var(--ink-mid)]"}`}>
                 Fixed price
               </span>
+            </div>
+
+            <div className={`mb-8 border p-4 ${t.dark ? "border-white/10 bg-white/[0.04]" : "border-[var(--ink-faint)] bg-[var(--cream)]"}`}>
+              <div className={`font-[family-name:var(--font-dm-mono)] text-[.58rem] tracking-[.14em] uppercase mb-2 ${t.dark ? "text-[var(--gold)]" : "text-[var(--ink-light)]"}`}>
+                Best for
+              </div>
+              <p className={`text-[.78rem] leading-[1.65] ${t.dark ? "text-white/76" : "text-[var(--ink-mid)]"}`}>
+                {t.bestFor}
+              </p>
             </div>
 
             <ul className={`flex flex-col gap-[14px] list-none pt-8 border-t mb-10 flex-1 ${t.dark ? "border-white/10" : "border-[var(--ink-faint)]"}`}>
@@ -105,7 +120,7 @@ export default function Pricing() {
                 <li
                   key={j}
                   className={`font-[family-name:var(--font-dm-mono)] text-[.62rem] pl-7 relative before:content-['✓'] before:absolute before:left-0 before:top-0 before:text-[var(--gold)] before:text-[.75rem]
-                    ${t.dark ? "text-white/80" : "text-[var(--ink)]"}
+                    ${t.dark ? "text-white/86" : "text-[var(--ink)]"}
                   `}
                 >
                   {f}
@@ -125,7 +140,7 @@ export default function Pricing() {
                   }
                 `}
               >
-                Get Started
+                {t.highlight ? "Choose Growth Site" : "Get Started"}
               </TrackedLink>
             </MagneticButton>
           </div>
@@ -145,11 +160,11 @@ export default function Pricing() {
           ].map((addon, i) => (
             <div key={i} className="border border-[var(--ink-faint)] bg-[var(--white)] p-8 relative transition-colors duration-300 hover:bg-black/[0.02]">
               <div className="flex justify-between items-start mb-4">
-                <p className="font-[family-name:var(--font-dm-mono)] text-[.5rem] tracking-[.2em] uppercase text-[var(--ink-light)]">{addon.tag}</p>
+                <p className="font-[family-name:var(--font-dm-mono)] text-[.58rem] tracking-[.14em] uppercase text-[var(--ink-light)]">{addon.tag}</p>
                 <div className="font-[family-name:var(--font-playfair)] font-bold text-lg text-[var(--gold)]">{addon.price}</div>
               </div>
               <h4 className="font-[family-name:var(--font-playfair)] text-[1.4rem] font-bold text-[var(--ink)] mb-2">{addon.name}</h4>
-              <p className="text-[.72rem] leading-[1.7] text-[var(--ink-light)] max-w-[200px]">{addon.desc}</p>
+              <p className="text-[.78rem] leading-[1.75] text-[var(--ink-mid)] max-w-[220px]">{addon.desc}</p>
             </div>
           ))}
         </div>
@@ -158,7 +173,7 @@ export default function Pricing() {
       <div id="faq" className="mt-24 px-[52px] max-lg:px-6 rv">
         <div className="flex items-end justify-between gap-10 mb-8 max-lg:flex-col max-lg:items-start">
           <div>
-            <div className="font-[family-name:var(--font-dm-mono)] text-[.56rem] tracking-[.2em] uppercase text-[var(--gold)] mb-[18px]">Questions</div>
+            <div className="eyebrow mb-[18px]">Questions</div>
             <h3 className="font-[family-name:var(--font-playfair)] text-[2.5rem] font-bold text-[var(--ink)] leading-[1.1]">
               Clear before <span className="italic font-normal text-[var(--ink-light)]">we start.</span>
             </h3>

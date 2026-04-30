@@ -14,7 +14,7 @@ export default function About() {
           </div>
         </div>
         <div className="rv">
-          <div className="font-[family-name:var(--font-dm-mono)] text-[.56rem] tracking-[.2em] uppercase text-[var(--gold)] mb-[24px]">About Me</div>
+          <div className="eyebrow mb-[24px]">About Me</div>
           <h2 className="font-[family-name:var(--font-playfair)] text-[clamp(2.5rem,5vw,4.5rem)] font-bold text-[var(--ink)] leading-[1.1] tracking-[-.02em] mb-10">
             A boutique agency <br />
             <span className="italic font-normal text-[var(--ink-light)]">that actually cares.</span>
@@ -29,7 +29,7 @@ export default function About() {
           <div className="border-t border-black/[0.08] pt-8">
             <div className="grid grid-cols-2 gap-8 max-sm:grid-cols-1">
               <div>
-                <div className="font-[family-name:var(--font-dm-mono)] text-[.56rem] tracking-[.18em] uppercase text-[var(--gold)] mb-4">Who I work with</div>
+                <div className="font-[family-name:var(--font-dm-mono)] text-[.62rem] tracking-[.12em] uppercase text-[var(--gold)] mb-4">Who I work with</div>
                 <ul className="list-none flex flex-col gap-3 pb-2">
                   {[
                     "Service businesses ready to scale",
@@ -43,7 +43,7 @@ export default function About() {
                 </ul>
               </div>
               <div>
-                <div className="font-[family-name:var(--font-dm-mono)] text-[.56rem] tracking-[.18em] uppercase text-[var(--ink-light)] mb-4">Not a fit</div>
+                <div className="font-[family-name:var(--font-dm-mono)] text-[.62rem] tracking-[.12em] uppercase text-[var(--ink-mid)] mb-4">Not a fit</div>
                 <ul className="list-none flex flex-col gap-3 pb-2">
                   {[
                     "Looking for a $300 WordPress template",

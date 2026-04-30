@@ -30,7 +30,7 @@ export default function Process() {
   return (
     <section id="process" className="scroll-mt-[100px] bg-[var(--ink)] py-[140px] max-lg:py-[100px] overflow-hidden">
       <div className="px-[52px] max-lg:px-6 mb-24 max-lg:mb-16 rv">
-        <div className="font-[family-name:var(--font-dm-mono)] text-[.56rem] tracking-[.2em] uppercase text-[var(--gold)] mb-[24px]">My Process</div>
+        <div className="eyebrow mb-[24px]">My Process</div>
         <h2 className="font-[family-name:var(--font-playfair)] text-[clamp(2.5rem,5vw,5rem)] font-bold text-white leading-[1.1] tracking-[-.02em] max-w-[800px]">
           How I build <span className="italic font-normal text-[var(--white)] opacity-50">systems.</span>
         </h2>

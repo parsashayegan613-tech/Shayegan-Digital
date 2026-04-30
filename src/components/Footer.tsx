@@ -9,7 +9,7 @@ export default function Footer() {
     <footer className="bg-[var(--ink)] text-[var(--white)] pt-[100px] relative overflow-hidden z-10">
       <div className="px-[52px] max-lg:px-[24px] pb-[80px] grid grid-cols-[1fr_auto] max-lg:grid-cols-1 gap-10 items-end rv">
         <div>
-          <div className="font-[family-name:var(--font-dm-mono)] text-[.56rem] tracking-[.2em] uppercase text-[var(--gold)] mb-[24px]">Ready?</div>
+          <div className="eyebrow mb-[24px]">Ready?</div>
           <h2 className="font-[family-name:var(--font-playfair)] text-[clamp(2.5rem,5vw,4.5rem)] font-bold mb-6 leading-[1.05] tracking-[-.02em] max-w-[600px]">
             Let&apos;s build something <span className="italic font-normal text-[var(--white)] opacity-50">extraordinary.</span>
           </h2>
@@ -41,7 +41,7 @@ export default function Footer() {
       </div>
 
       <div className="flex justify-center items-center px-[52px] py-8 border-t border-[rgba(255,255,255,0.06)] max-lg:px-[24px]">
-        <div className="font-[family-name:var(--font-dm-mono)] text-[.55rem] text-white/30 tracking-[.1em] text-center">
+        <div className="font-[family-name:var(--font-dm-mono)] text-[.62rem] text-white/42 tracking-[.08em] text-center">
           © {new Date().getFullYear()} SHAYEGAN DIGITAL. ALL RIGHTS RESERVED.
         </div>
       </div>

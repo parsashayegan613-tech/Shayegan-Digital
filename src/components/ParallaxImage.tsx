@@ -20,6 +20,17 @@ export default function ParallaxImage({
   const imageWrapperRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const shouldReduceMotion =
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
+      window.matchMedia("(max-width: 768px)").matches;
+
+    if (shouldReduceMotion) {
+      if (imageWrapperRef.current) {
+        imageWrapperRef.current.style.transform = "scale(1.04)";
+      }
+      return;
+    }
+
     let ticking = false;
 
     const onScroll = () => {
@@ -28,13 +39,13 @@ export default function ParallaxImage({
           if (!containerRef.current || !imageWrapperRef.current) return;
           const rect = containerRef.current.getBoundingClientRect();
           const viewHeight = window.innerHeight;
-          
+
           // Only animate if visible in the viewport
           if (rect.top <= viewHeight && rect.bottom >= 0) {
             const progress = (viewHeight - rect.top) / (viewHeight + rect.height);
-            // Parallax shift from -12% to +12%
-            const yShift = (progress - 0.5) * 24; 
-            
+            // Parallax shift from -8% to +8%; enough depth without constant motion noise.
+            const yShift = (progress - 0.5) * 16;
+
             // Note: The scale(1.15) prevents the image edges from showing during the parallax shift
             imageWrapperRef.current.style.transform = `translate3d(0, ${yShift}%, 0) scale(1.15)`;
           }

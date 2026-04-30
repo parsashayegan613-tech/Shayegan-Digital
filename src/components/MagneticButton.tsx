@@ -20,6 +20,12 @@ export default function MagneticButton({
 
     const el = ref.current;
     if (!el) return;
+    if (
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
+      window.matchMedia("(pointer: coarse)").matches
+    ) {
+      return;
+    }
 
     const lerp = (start: number, end: number, factor: number) => {
       return start + (end - start) * factor;

@@ -26,7 +26,7 @@ export default function Testimonials() {
   return (
     <section id="testi" className="bg-[var(--ink)] py-[140px] overflow-hidden max-lg:py-[100px]">
       <div className="px-[52px] mb-20 max-lg:px-6 rv">
-        <div className="font-[family-name:var(--font-dm-mono)] text-[.56rem] tracking-[.2em] uppercase text-[var(--gold)] mb-[24px]">What clients say</div>
+        <div className="eyebrow mb-[24px]">What clients say</div>
         <h2 className="font-[family-name:var(--font-playfair)] text-[clamp(3rem,6vw,5.5rem)] font-bold text-[var(--cream-dark)] leading-[1.1] tracking-[-.02em]">
           Trusted by<br /><span className="italic font-normal text-[var(--ink-light)]">real businesses.</span>
         </h2>
@@ -52,7 +52,7 @@ export default function Testimonials() {
                 </div>
                 <div>
                   <div className="font-[family-name:var(--font-dm-mono)] text-[.7rem] font-bold text-[var(--white)] mb-1">{t.name}</div>
-                  <div className="font-[family-name:var(--font-dm-mono)] text-[.52rem] tracking-[.15em] uppercase text-[var(--ink-light)]">{t.role}</div>
+                  <div className="font-[family-name:var(--font-dm-mono)] text-[.62rem] tracking-[.1em] uppercase text-white/48">{t.role}</div>
                 </div>
               </div>
             </div>

@@ -2,7 +2,7 @@ export default function TrustedBy() {
   return (
     <section className="py-[50px] border-b border-black/[0.06]">
       <div className="px-[52px] max-lg:px-6 flex flex-col items-center gap-6">
-        <p className="font-[family-name:var(--font-dm-mono)] text-[.5rem] tracking-[.25em] uppercase text-[var(--ink-light)]">
+        <p className="font-[family-name:var(--font-dm-mono)] text-[.62rem] tracking-[.14em] uppercase text-[var(--ink-mid)]">
           Trusted by Edmonton businesses
         </p>
         <div className="flex items-center gap-12 max-sm:gap-8 flex-wrap justify-center">
