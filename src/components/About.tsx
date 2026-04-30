@@ -2,8 +2,8 @@ import ParallaxImage from "./ParallaxImage";
 
 export default function About() {
   return (
-    <section id="about" className="bg-[var(--white)] py-[140px] border-t border-black/[0.08] max-lg:py-[100px]">
-      <div className="grid grid-cols-[1fr_1fr] gap-20 px-[52px] items-start max-lg:grid-cols-1 max-lg:gap-14 max-lg:px-6">
+    <section className="bg-[var(--white)] py-[140px] border-t border-black/[0.08] max-lg:py-[100px]">
+      <div id="about" data-scroll-align="center" className="grid grid-cols-[1fr_1fr] gap-20 px-[52px] items-start max-lg:grid-cols-1 max-lg:gap-14 max-lg:px-6">
         <div className="rv">
           <div className="w-full aspect-square bg-[#eee] relative rounded-[4px] overflow-hidden">
             <ParallaxImage 

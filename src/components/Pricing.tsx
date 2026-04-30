@@ -55,8 +55,8 @@ const tiers = [
 
 export default function Pricing() {
   return (
-    <section id="pricing" className="py-[140px] bg-[var(--cream)] max-lg:py-[100px]">
-      <div className="px-[52px] mb-20 max-lg:px-6 rv">
+    <section className="py-[140px] bg-[var(--cream)] max-lg:py-[100px]">
+      <div id="pricing" className="scroll-mt-[160px] px-[52px] mb-20 max-lg:scroll-mt-[130px] max-lg:px-6 max-sm:scroll-mt-[95px] rv">
         <div className="eyebrow mb-[24px]">Investment</div>
         <h2 className="font-[family-name:var(--font-playfair)] text-[clamp(3rem,6vw,5.5rem)] font-bold text-[var(--ink)] leading-[1.1] tracking-[-.02em] max-w-[800px]">
           Transparent <span className="italic font-normal text-[var(--ink-light)]">pricing.</span>

@@ -1,48 +1,27 @@
 "use client";
 
-import { useCallback, useRef, useState, useEffect } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import MagneticButton from "./MagneticButton";
 import SplitText from "./SplitText";
 import TrackedLink from "./TrackedLink";
 
-const words = ["websites", "brands", "systems", "results"];
+const rotatingHeroWords = ["websites", "funnels", "systems", "landing pages"];
 
-function RotatingWord() {
-  const [index, setIndex] = useState(0);
-  const [animating, setAnimating] = useState(false);
+export default function Hero() {
+  const stackRef = useRef<HTMLDivElement>(null);
+  const [heroWordIndex, setHeroWordIndex] = useState(0);
 
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       return;
     }
 
-    const interval = setInterval(() => {
-      setAnimating(true);
-      setTimeout(() => {
-        setIndex((prev) => (prev + 1) % words.length);
-        setAnimating(false);
-      }, 400);
-    }, 4200);
-    return () => clearInterval(interval);
+    const interval = window.setInterval(() => {
+      setHeroWordIndex((currentIndex) => (currentIndex + 1) % rotatingHeroWords.length);
+    }, 2200);
+
+    return () => window.clearInterval(interval);
   }, []);
-
-  return (
-    <span className="inline-block relative overflow-hidden h-[1.15em] align-bottom">
-      <span
-        className="inline-block transition-all duration-[400ms] ease-[cubic-bezier(.16,1,.3,1)]"
-        style={{
-          transform: animating ? "translateY(-110%)" : "translateY(0)",
-          opacity: animating ? 0 : 1,
-        }}
-      >
-        {words[index]}.
-      </span>
-    </span>
-  );
-}
-
-export default function Hero() {
-  const stackRef = useRef<HTMLDivElement>(null);
 
   const handleStackMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
     const el = stackRef.current;
@@ -76,24 +55,30 @@ export default function Hero() {
         <p className="eyebrow inline-flex items-center gap-[10px] mb-9 opacity-0 animate-[fup_.7s_cubic-bezier(.16,1,.3,1)_.2s_forwards] before:content-[''] before:w-7 before:h-[1px] before:bg-[var(--gold)]">
           Edmonton Digital Agency &nbsp;/&nbsp; Local Expertise
         </p>
-        <h1 className="cursor-blend font-[family-name:var(--font-playfair)] text-[clamp(3.8rem,7.5vw,8rem)] font-black leading-[.92] tracking-[-.03em] text-[var(--ink)] max-lg:text-[clamp(3rem,12vw,5.5rem)] max-sm:text-[clamp(2.6rem,14vw,4rem)]">
-          <span className="block overflow-clip">
-            <SplitText className="block" delay={350} stagger={40}>I build</SplitText>
+        <h1
+          aria-label="Custom websites that book calls."
+          className="cursor-blend font-[family-name:var(--font-playfair)] text-[clamp(3.8rem,7.5vw,8rem)] font-black leading-[.92] tracking-[-.03em] text-[var(--ink)] max-lg:text-[clamp(3rem,12vw,5.5rem)] max-sm:text-[clamp(2.6rem,14vw,4rem)]"
+        >
+          <span aria-hidden="true" className="block overflow-clip">
+            <SplitText className="block" delay={350} stagger={32}>Custom</SplitText>
           </span>
-          <span className="block overflow-clip">
-            <span className="block animate-[sup_.9s_cubic-bezier(.16,1,.3,1)_.5s_both]">
+          <span aria-hidden="true" className="block min-h-[0.98em] overflow-hidden">
+            <span
+              key={rotatingHeroWords[heroWordIndex]}
+              className="block animate-[wordCycle_.68s_cubic-bezier(.16,1,.3,1)_both]"
+            >
               <span className="font-[family-name:var(--font-playfair)] italic text-[var(--gold)]">
-                <RotatingWord />
+                {rotatingHeroWords[heroWordIndex]}
               </span>
             </span>
           </span>
-          <span className="block overflow-clip">
-            <SplitText className="block" delay={650} stagger={40}>that convert.</SplitText>
+          <span aria-hidden="true" className="block overflow-clip">
+            <SplitText className="block" delay={650} stagger={32}>that book calls.</SplitText>
           </span>
         </h1>
         <p className="mt-10 text-[.88rem] font-normal leading-[1.8] text-[var(--ink-mid)] max-w-[400px] opacity-0 animate-[fup_.8s_cubic-bezier(.16,1,.3,1)_.9s_forwards]">
-          I build high-performance websites for Edmonton businesses that rank, convert, and scale, starting at $800. 
-          Everything is custom-designed and built from scratch. No templates. No hidden fees. No ghosting after launch.
+          High-performance websites for Edmonton businesses that need stronger local trust, clearer calls to action, and tracked leads from Google, starting at $800.
+          Custom-built from scratch. No templates. No hidden fees. No ghosting after launch.
         </p>
         <div className="mt-11 flex items-center gap-6 flex-wrap opacity-0 animate-[fup_.8s_cubic-bezier(.16,1,.3,1)_1.05s_forwards]">
           <MagneticButton>
@@ -116,6 +101,26 @@ export default function Hero() {
               Featured Work
             </TrackedLink>
           </MagneticButton>
+        </div>
+
+        <div className="mt-9 hidden max-lg:grid grid-cols-3 gap-2 opacity-0 animate-[fup_.8s_cubic-bezier(.16,1,.3,1)_1.18s_forwards] max-sm:grid-cols-1">
+          {[
+            ["From", "$800", "fixed launch pricing"],
+            ["Speed", "1-2 wks", "typical delivery"],
+            ["Tracking", "GA4", "calls & CTA clicks"],
+          ].map(([label, value, detail]) => (
+            <div key={label} className="border border-[var(--ink-faint)] bg-[var(--white)] px-4 py-4 shadow-[0_14px_35px_rgba(12,12,10,0.045)]">
+              <div className="font-[family-name:var(--font-dm-mono)] text-[.54rem] tracking-[.14em] uppercase text-[var(--gold)] mb-2">
+                {label}
+              </div>
+              <div className="font-[family-name:var(--font-playfair)] text-[1.35rem] font-bold leading-none text-[var(--ink)]">
+                {value}
+              </div>
+              <div className="mt-2 font-[family-name:var(--font-dm-mono)] text-[.54rem] tracking-[.08em] uppercase text-[var(--ink-light)]">
+                {detail}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
 

@@ -3,29 +3,65 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import { scrollToHash } from "@/lib/scroll-to-hash";
 import MagneticButton from "./MagneticButton";
 import TrackedLink from "./TrackedLink";
+
+const links = [
+  { label: "Services", href: "#services" },
+  { label: "Work", href: "#featured-work" },
+  { label: "Process", href: "#process" },
+  { label: "Pricing", href: "#pricing" },
+  { label: "About", href: "#about" },
+  { label: "Contact", href: "#contact" },
+];
 
 export default function Nav() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
   const anchorPrefix = pathname === "/" ? "" : "/";
-  const links = ["Services", "Featured Work", "About"];
+
+  const handleLogoClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    setIsOpen(false);
+
+    if (pathname !== "/") {
+      return;
+    }
+
+    event.preventDefault();
+    window.history.replaceState(null, "", "/");
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  };
+
+  const handleAnchorClick = (
+    event: React.MouseEvent<HTMLAnchorElement>,
+    href: string,
+  ) => {
+    setIsOpen(false);
+
+    if (pathname !== "/" || !href.startsWith("#")) {
+      return;
+    }
+
+    event.preventDefault();
+    scrollToHash(href);
+  };
 
   return (
     <>
       <nav className="fixed top-0 left-0 right-0 z-[800] flex items-center justify-between py-[22px] px-12 max-lg:py-[18px] max-lg:px-6 rv before:content-[''] before:absolute before:inset-0 before:bg-[rgba(245,242,236,0.9)] before:backdrop-blur-[18px] before:border-b before:border-[rgba(201,169,110,0.12)] before:-z-10">
-        <Link href="/" onClick={() => setIsOpen(false)} className={`font-[family-name:var(--font-playfair)] text-[1.1rem] font-bold tracking-[.04em] transition-colors duration-300 relative z-[801] ${isOpen ? 'text-[var(--white)]' : 'text-[var(--ink)]'}`}>
+        <Link href="/" onClick={handleLogoClick} className={`font-[family-name:var(--font-playfair)] text-[1.1rem] font-bold tracking-[.04em] transition-colors duration-300 relative z-[801] ${isOpen ? 'text-[var(--white)]' : 'text-[var(--ink)]'}`}>
           Shayegan<em className="italic font-normal text-[var(--gold)]">Digital</em>
         </Link>
-        <ul className="flex gap-9 list-none max-lg:hidden">
+        <ul className="flex gap-6 list-none max-lg:hidden">
           {links.map((item) => (
-            <li key={item}>
+            <li key={item.label}>
               <a
-                href={`${anchorPrefix}#${item.toLowerCase().replace(" ", "-")}`}
+                href={`${anchorPrefix}${item.href}`}
+                onClick={(event) => handleAnchorClick(event, item.href)}
                 className="font-[family-name:var(--font-dm-mono)] text-[.6rem] tracking-[.18em] uppercase text-[var(--ink-light)] transition-colors duration-200 relative group hover:text-[var(--ink)]"
               >
-                {item}
+                {item.label}
                 <span className="absolute -bottom-[3px] left-0 w-0 h-[1px] bg-[var(--gold)] transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:w-full" />
               </a>
             </li>
@@ -68,14 +104,14 @@ export default function Nav() {
       >
         <ul className="flex flex-col gap-8 items-center list-none p-0 m-0">
           {links.map((item, i) => (
-            <li key={item} className="overflow-hidden p-2">
+            <li key={item.label} className="overflow-hidden p-2">
               <a
-                href={`${anchorPrefix}#${item.toLowerCase().replace(" ", "-")}`}
-                onClick={() => setIsOpen(false)}
+                href={`${anchorPrefix}${item.href}`}
+                onClick={(event) => handleAnchorClick(event, item.href)}
                 style={{ transitionDelay: `${isOpen ? 100 + (i * 60) : 0}ms` }}
                 className={`block font-[family-name:var(--font-playfair)] text-[2.6rem] font-bold text-[var(--white)] transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${isOpen ? 'translate-y-0' : 'translate-y-[120%]'}`}
               >
-                {item}
+                {item.label}
               </a>
             </li>
           ))}

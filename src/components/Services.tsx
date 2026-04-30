@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import MagneticButton from "./MagneticButton";
+import TrackedLink from "./TrackedLink";
 
 const services = [
   {
@@ -57,8 +59,8 @@ export default function Services() {
   const [active, setActive] = useState<number | null>(null);
 
   return (
-    <section id="services" className="py-[160px] pb-[100px] max-lg:py-25 relative">
-      <div className="px-[52px] max-lg:px-6 mb-20 rv">
+    <section className="py-[160px] pb-[100px] max-lg:py-25 relative">
+      <div id="services" className="scroll-mt-[160px] px-[52px] max-lg:scroll-mt-[130px] max-lg:px-6 max-sm:scroll-mt-[95px] mb-20 rv">
         <div className="eyebrow mb-6">
           What I Do
         </div>
@@ -138,6 +140,28 @@ export default function Services() {
             </div>
           );
         })}
+      </div>
+
+      <div className="mx-[52px] mt-18 grid grid-cols-[1fr_auto] items-center gap-8 border border-[var(--ink-faint)] bg-[var(--white)] p-8 shadow-[0_18px_55px_rgba(12,12,10,0.045)] rv d3 max-lg:mx-6 max-lg:grid-cols-1">
+        <div>
+          <div className="eyebrow mb-3">Not sure what you need?</div>
+          <h3 className="font-[family-name:var(--font-playfair)] text-[clamp(2rem,3vw,3.25rem)] font-bold leading-[1.08] text-[var(--ink)]">
+            Get the fastest path from idea to booked calls.
+          </h3>
+          <p className="mt-4 max-w-[560px] text-[.86rem] leading-[1.75] text-[var(--ink-mid)]">
+            I&apos;ll help you choose the right scope, identify the pages that matter, and avoid paying for features your business does not need yet.
+          </p>
+        </div>
+        <MagneticButton>
+          <TrackedLink
+            href="#contact"
+            eventName="cta_clicked"
+            eventProperties={{ location: "services_after", label: "Get My Website Plan" }}
+            className="font-[family-name:var(--font-dm-mono)] text-[.62rem] tracking-[.14em] uppercase text-[var(--white)] bg-[var(--ink)] px-[30px] py-[14px] no-underline block transition-all duration-250 ease-[cubic-bezier(.16,1,.3,1)] hover:bg-[var(--gold)] hover:-translate-y-[2px]"
+          >
+            Get My Website Plan
+          </TrackedLink>
+        </MagneticButton>
       </div>
     </section>
   );

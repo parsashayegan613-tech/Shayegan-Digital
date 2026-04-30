@@ -2,6 +2,7 @@
 
 import type { AnchorHTMLAttributes, ReactNode } from "react";
 import { trackMarketingEvent, type EventProperties } from "@/lib/analytics";
+import { scrollToHash } from "@/lib/scroll-to-hash";
 
 type TrackedLinkProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
   children: ReactNode;
@@ -22,6 +23,13 @@ export default function TrackedLink({
       onClick={(event) => {
         trackMarketingEvent(eventName, eventProperties);
         onClick?.(event);
+
+        if (event.defaultPrevented || typeof props.href !== "string" || !props.href.startsWith("#")) {
+          return;
+        }
+
+        event.preventDefault();
+        scrollToHash(props.href);
       }}
     >
       {children}

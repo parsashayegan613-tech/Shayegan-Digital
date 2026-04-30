@@ -21,6 +21,13 @@ export const caseStudies = [
     outcome:
       "The finished site gives patients faster routes to the actions they care about while giving the business a stronger local SEO and trust foundation.",
     scope: "Pharmacy platform",
+    proof: {
+      goal: "Make refills and appointments easier to find",
+      changed: "Rebuilt the experience around patient actions, service clarity, and local trust signals",
+      result: "Visitors get clearer next steps without needing to dig through the site",
+      techStack: "Next.js, responsive UI, local SEO structure, GA4-ready events",
+      timeline: "1-2 week build window",
+    },
     services: ["UX strategy", "Custom web design", "Conversion copy", "Local SEO foundation"],
     deliverables: [
       "Prescription refill pathway",
@@ -68,6 +75,13 @@ export const caseStudies = [
     outcome:
       "The finished site positions Invitvo as a more credible research supplier and gives visitors a clearer path from product interest to quote request.",
     scope: "Research commerce",
+    proof: {
+      goal: "Turn technical product interest into quote requests",
+      changed: "Organized the site around compound discovery, buyer confidence, and request pathways",
+      result: "Research buyers can evaluate the company faster and reach the quote path sooner",
+      techStack: "Next.js, catalog IA, quote-flow UX, performance-first frontend",
+      timeline: "1-2 week build window",
+    },
     services: ["Information architecture", "Custom web design", "Quote-flow UX", "Technical content structure"],
     deliverables: [
       "Research compound catalog",

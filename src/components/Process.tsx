@@ -28,7 +28,7 @@ const steps = [
 
 export default function Process() {
   return (
-    <section id="process" className="scroll-mt-[100px] bg-[var(--ink)] py-[140px] max-lg:py-[100px] overflow-hidden">
+    <section className="bg-[var(--ink)] py-[140px] max-lg:py-[100px] overflow-hidden">
       <div className="px-[52px] max-lg:px-6 mb-24 max-lg:mb-16 rv">
         <div className="eyebrow mb-[24px]">My Process</div>
         <h2 className="font-[family-name:var(--font-playfair)] text-[clamp(2.5rem,5vw,5rem)] font-bold text-white leading-[1.1] tracking-[-.02em] max-w-[800px]">
@@ -36,7 +36,7 @@ export default function Process() {
         </h2>
       </div>
 
-      <div className="px-[52px] max-lg:px-6 mb-16">
+      <div id="process" data-scroll-align="center" className="scroll-mt-[360px] px-[52px] max-lg:scroll-mt-[220px] max-lg:px-6 max-sm:scroll-mt-[150px] mb-16">
         <div className="grid grid-cols-4 gap-8 max-lg:grid-cols-1 max-lg:gap-14">
           {steps.map((step, i) => (
             <div key={i} className={`relative group rv ${i > 0 ? `d${i}` : ''}`}>
