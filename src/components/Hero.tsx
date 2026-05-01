@@ -62,10 +62,10 @@ export default function Hero() {
           <span aria-hidden="true" className="block overflow-clip">
             <SplitText className="block" delay={350} stagger={32}>Custom</SplitText>
           </span>
-          <span aria-hidden="true" className="block min-h-[0.98em] overflow-hidden">
+          <span aria-hidden="true" className="relative block h-[0.98em] overflow-hidden whitespace-nowrap">
             <span
               key={rotatingHeroWords[heroWordIndex]}
-              className="block animate-[wordCycle_.68s_cubic-bezier(.16,1,.3,1)_both]"
+              className="absolute inset-0 block animate-[wordCycle_.68s_cubic-bezier(.16,1,.3,1)_both]"
             >
               <span className="font-[family-name:var(--font-playfair)] italic text-[var(--gold)]">
                 {rotatingHeroWords[heroWordIndex]}
