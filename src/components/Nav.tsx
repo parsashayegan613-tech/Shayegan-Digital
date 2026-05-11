@@ -100,22 +100,22 @@ export default function Nav() {
 
       {/* Mobile Menu Overlay */}
       <div 
-        className={`hidden max-lg:flex fixed inset-0 z-[799] bg-[var(--ink)] flex-col justify-center items-center transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
+        className={`hidden max-lg:flex fixed left-0 right-0 bottom-0 top-[76px] z-[799] bg-[var(--ink)] flex-col items-center justify-start overflow-y-auto overscroll-contain px-6 pt-10 pb-[calc(32px+env(safe-area-inset-bottom))] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
       >
-        <ul className="flex flex-col gap-8 items-center list-none p-0 m-0">
+        <ul className="flex min-h-full flex-col items-center justify-center gap-7 list-none p-0 m-0 max-sm:gap-5">
           {links.map((item, i) => (
             <li key={item.label} className="overflow-hidden p-2">
               <a
                 href={`${anchorPrefix}${item.href}`}
                 onClick={(event) => handleAnchorClick(event, item.href)}
                 style={{ transitionDelay: `${isOpen ? 100 + (i * 60) : 0}ms` }}
-                className={`block font-[family-name:var(--font-playfair)] text-[2.6rem] font-bold text-[var(--white)] transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${isOpen ? 'translate-y-0' : 'translate-y-[120%]'}`}
+                className={`block font-[family-name:var(--font-playfair)] text-[clamp(2.1rem,11vw,2.6rem)] font-bold leading-[1.05] text-[var(--white)] transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${isOpen ? 'translate-y-0' : 'translate-y-[120%]'}`}
               >
                 {item.label}
               </a>
             </li>
           ))}
-          <li className="mt-8 flex justify-center w-full overflow-hidden p-2">
+          <li className="mt-6 flex justify-center w-full overflow-hidden p-2 max-sm:mt-4">
             <TrackedLink
               href={`${anchorPrefix}#contact`}
               onClick={() => setIsOpen(false)}

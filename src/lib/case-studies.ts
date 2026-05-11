@@ -1,5 +1,59 @@
 export const caseStudies = [
   {
+    slug: "nand-builders",
+    title: "Nand Builders",
+    eyebrow: "Construction Case Study",
+    category: "Construction",
+    industry: "Residential construction",
+    location: "South Edmonton, AB",
+    liveUrl: "https://www.nandbuilders.ca/",
+    image: "/portfolio-nand-builders.jpg",
+    imageAlt: "Nand Builders homepage screenshot",
+    metaTitle: "Nand Builders Case Study | Shayegan Digital",
+    metaDescription:
+      "A residential construction website case study for Nand Builders covering roofing and build pathways, local SEO structure, and estimate-focused lead flow.",
+    summary:
+      "A residential construction website built to route homeowners into the right service path: Alberta roofing, South Edmonton builds, renovations, and basement projects.",
+    problem:
+      "Nand Builders had multiple buyer intents under one brand. Roofing customers, renovation leads, and custom-home prospects needed clearer paths, stronger trust signals, and a faster way to request an estimate.",
+    solution:
+      "We created a path-first homepage, dedicated service pages, prominent phone and estimate CTAs, and local SEO structure around Alberta roofing and South Edmonton residential construction.",
+    outcome:
+      "The finished site gives homeowners a clearer first step and gives Nand Builders a stronger digital foundation for roofing, renovation, basement, and custom-home inquiries.",
+    scope: "Construction lead system",
+    proof: {
+      goal: "Route each visitor to the right estimate path",
+      changed: "Split roofing and build/renovate traffic into focused pages with stronger service-area context",
+      result: "Homeowners can self-select the right project path before contacting the team",
+      techStack: "Next.js, service-path IA, local SEO structure, responsive lead forms",
+      timeline: "1-2 week build window",
+    },
+    services: ["UX strategy", "Custom web design", "Local SEO foundation", "Conversion copy"],
+    deliverables: [
+      "Path-first homepage",
+      "Roofing and construction service pages",
+      "Estimate request flow",
+      "Service-area SEO structure",
+    ],
+    highlights: [
+      {
+        label: "Primary goal",
+        value: "Separate buyer intent",
+        detail: "Roofing, build, renovation, and basement visitors get routed into the service path that matches their project.",
+      },
+      {
+        label: "UX focus",
+        value: "Clear first step",
+        detail: "Prominent estimate CTAs and service-specific pages reduce confusion before a homeowner reaches out.",
+      },
+      {
+        label: "SEO role",
+        value: "Local demand capture",
+        detail: "The structure supports Alberta roofing searches and South Edmonton residential construction searches.",
+      },
+    ],
+  },
+  {
     slug: "village-ida-pharmacy",
     title: "Village IDA Pharmacy",
     eyebrow: "Healthcare Case Study",

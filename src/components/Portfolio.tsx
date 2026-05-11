@@ -24,12 +24,9 @@ export default function Portfolio() {
 
       <div className="relative z-10 grid grid-cols-2 gap-10 px-[52px] max-lg:grid-cols-1 max-lg:px-6">
         {caseStudies.map((p, i) => (
-          <TrackedLink
-            key={i}
-            href={`/case-studies/${p.slug}`}
-            eventName="portfolio_clicked"
-            eventProperties={{ project: p.title, location: "featured_work", destination: "case_study" }}
-            className={`group block w-full relative rv ${i > 0 ? 'd2' : ''}`}
+          <article
+            key={p.slug}
+            className={`group flex h-full w-full flex-col relative rv ${i > 0 ? 'd2' : ''}`}
           >
             <div className="aspect-[16/10] relative overflow-hidden rounded-[6px] border border-white/[0.12] mb-6 bg-white/[0.04] transition-all duration-500 ease-[cubic-bezier(.16,1,.3,1)] shadow-[0_18px_70px_rgba(0,0,0,0.22)] group-hover:shadow-[0_28px_90px_rgba(0,0,0,0.35)] group-hover:-translate-y-1.5">
               <Image
@@ -47,13 +44,13 @@ export default function Portfolio() {
             </div>
 
             {/* Text Below */}
-            <div className="pr-4">
+            <div className="flex flex-1 flex-col pr-4">
               <div className="flex items-center justify-between gap-4 mb-3 max-sm:flex-col max-sm:items-start">
                 <h3 className="font-[family-name:var(--font-playfair)] text-[1.9rem] font-bold text-[var(--cream-dark)] leading-[1.2]">{p.title}</h3>
                 <div className="font-[family-name:var(--font-dm-mono)] text-[.58rem] tracking-[.14em] uppercase text-[var(--gold)] px-3 py-1.5 bg-white/[0.06] border border-white/[0.12] rounded-full">{p.category}</div>
               </div>
-              <p className="text-[.88rem] leading-[1.75] text-white/62 max-w-[500px] mb-5">{p.summary}</p>
-              <div className="mb-6 grid grid-cols-[110px_1fr] gap-x-4 gap-y-3 border border-white/[0.1] bg-white/[0.035] p-4 max-sm:grid-cols-1">
+              <p className="text-[.88rem] leading-[1.75] text-white/62 max-w-[500px] mb-5 lg:min-h-[4.8rem]">{p.summary}</p>
+              <div className="mb-6 grid grid-cols-[110px_1fr] gap-x-4 gap-y-3 border border-white/[0.1] bg-white/[0.035] p-4 lg:min-h-[18rem] xl:min-h-[16.5rem] max-sm:grid-cols-1">
                 {[
                   ["Goal", p.proof.goal],
                   ["Changed", p.proof.changed],
@@ -79,11 +76,28 @@ export default function Portfolio() {
                 ))}
               </ul>
               
-              <div className="inline-flex items-center gap-2 font-[family-name:var(--font-dm-mono)] text-[.62rem] tracking-[.12em] uppercase text-white/45 transition-colors duration-300 group-hover:text-[var(--gold)]">
-                Read Case Study <span className="text-[.8rem] transition-transform duration-300 group-hover:translate-x-1">→</span>
+              <div className="mt-auto flex flex-wrap items-center gap-x-6 gap-y-3">
+                <TrackedLink
+                  href={`/case-studies/${p.slug}`}
+                  eventName="portfolio_clicked"
+                  eventProperties={{ project: p.title, location: "featured_work", destination: "case_study" }}
+                  className="inline-flex items-center gap-2 font-[family-name:var(--font-dm-mono)] text-[.62rem] tracking-[.12em] uppercase text-white/45 transition-colors duration-300 hover:text-[var(--gold)]"
+                >
+                  Read Case Study <span className="text-[.8rem] transition-transform duration-300 group-hover:translate-x-1">→</span>
+                </TrackedLink>
+                <TrackedLink
+                  href={p.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  eventName="portfolio_clicked"
+                  eventProperties={{ project: p.title, location: "featured_work", destination: "live_site" }}
+                  className="inline-flex items-center gap-2 font-[family-name:var(--font-dm-mono)] text-[.62rem] tracking-[.12em] uppercase text-[var(--gold)] transition-colors duration-300 hover:text-white"
+                >
+                  View Live Website <span className="text-[.8rem] transition-transform duration-300 group-hover:translate-x-1">↗</span>
+                </TrackedLink>
               </div>
             </div>
-          </TrackedLink>
+          </article>
         ))}
       </div>
 
