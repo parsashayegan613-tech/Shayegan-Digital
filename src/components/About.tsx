@@ -29,7 +29,7 @@ export default function About() {
           <div className="border-t border-black/[0.08] pt-8">
             <div className="grid grid-cols-2 gap-8 max-sm:grid-cols-1">
               <div>
-                <div className="font-[family-name:var(--font-dm-mono)] text-[.62rem] tracking-[.12em] uppercase text-[var(--gold)] mb-4">Who I work with</div>
+                <div className="font-[family-name:var(--font-dm-mono)] text-[.62rem] tracking-[.12em] uppercase text-[var(--gold-text)] mb-4">Who I work with</div>
                 <ul className="list-none flex flex-col gap-3 pb-2">
                   {[
                     "Service businesses ready to scale",

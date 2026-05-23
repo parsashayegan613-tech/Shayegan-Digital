@@ -1,8 +1,3 @@
-"use client";
-
-import MagneticButton from "./MagneticButton";
-import TrackedLink from "./TrackedLink";
-
 const steps = [
   {
     num: "01",
@@ -58,16 +53,12 @@ export default function Process() {
       </div>
       
       <div className="px-[52px] max-lg:px-6 rv d4">
-        <MagneticButton>
-          <TrackedLink
+        <a
             href="#contact"
-            eventName="cta_clicked"
-            eventProperties={{ location: "process", label: "Start Your Project Today" }}
             className="font-[family-name:var(--font-dm-mono)] text-[.65rem] tracking-[.14em] uppercase text-[var(--ink)] bg-[var(--gold)] px-[34px] py-[15px] no-underline block transition-all duration-250 ease-[cubic-bezier(.16,1,.3,1)] hover:bg-white hover:-translate-y-[2px]"
           >
             Start Your Project Today
-          </TrackedLink>
-        </MagneticButton>
+        </a>
       </div>
     </section>
   );

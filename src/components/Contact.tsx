@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { siteConfig } from "@/lib/site";
-import TrackedLink from "./TrackedLink";
 
 export default function Contact() {
   return (
@@ -9,7 +8,7 @@ export default function Contact() {
         <div className="flex-1 rv">
           <div className="eyebrow mb-[24px]">Direct founder call</div>
           <h2 className="font-[family-name:var(--font-playfair)] text-[clamp(3.5rem,7vw,6rem)] font-bold leading-[1.05] tracking-[-.03em] text-[var(--ink)] mb-6">
-            Book your free <br /><span className="italic text-[var(--gold)] font-normal">strategy call.</span>
+            Book your free <br /><span className="italic text-[var(--gold-text)] font-normal">strategy call.</span>
           </h2>
           <p className="text-[.95rem] text-[var(--ink-mid)] max-w-[430px] leading-[1.75]">
             Tell me about your business and I&apos;ll give you honest, actionable feedback on your website and growth strategy — completely free. No catch, no pitch.
@@ -17,17 +16,15 @@ export default function Contact() {
         </div>
         
         <div className="flex-1 flex flex-col justify-center items-start rv d2">
-           <TrackedLink
+           <a
              href={siteConfig.calendlyUrl}
              target="_blank"
              rel="noopener noreferrer"
-             eventName="calendly_clicked"
-             eventProperties={{ location: "contact", label: "Find a time on my calendar" }}
              className="group inline-flex items-center justify-between w-full max-w-[400px] bg-[var(--ink)] text-[var(--white)] py-[22px] px-8 border-none font-[family-name:var(--font-dm-mono)] text-[.75rem] uppercase tracking-[.15em] cursor-pointer rounded-[3px] transition-all duration-300 hover:bg-[var(--gold)] hover:shadow-[0_15px_30px_rgba(201,169,110,0.3)] hover:-translate-y-1"
            >
              <span>Find a time on my calendar</span>
              <span className="text-[1.2rem] transition-transform duration-300 group-hover:translate-x-2">→</span>
-           </TrackedLink>
+           </a>
            <div className="mt-6 flex items-center gap-3">
              <span className="w-[6px] h-[6px] rounded-full bg-green-500 animate-pulse"></span>
              <p className="font-[family-name:var(--font-dm-mono)] text-[.62rem] tracking-[.08em] uppercase text-[var(--ink-mid)]">

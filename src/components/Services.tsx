@@ -1,9 +1,3 @@
-"use client";
-
-import { useState } from "react";
-import MagneticButton from "./MagneticButton";
-import TrackedLink from "./TrackedLink";
-
 const services = [
   {
     n: "01",
@@ -56,8 +50,6 @@ const services = [
 ];
 
 export default function Services() {
-  const [active, setActive] = useState<number | null>(null);
-
   return (
     <section className="py-[160px] pb-[100px] max-lg:py-25 relative">
       <div id="services" className="scroll-mt-[160px] px-[52px] max-lg:scroll-mt-[130px] max-lg:px-6 max-sm:scroll-mt-[95px] mb-20 rv">
@@ -74,22 +66,18 @@ export default function Services() {
 
       <div className="border-t border-black/[0.08] rv">
         {services.map((s, i) => {
-          const isActive = active === i;
           const panelId = `service-panel-${i}`;
           return (
-            <div
+            <details
               key={i}
-              className="border-b border-black/[0.08] px-[52px] py-[50px] transition-colors duration-300 hover:bg-black/[0.015] max-lg:px-6"
+              className="service-item border-b border-black/[0.08] px-[52px] py-[50px] transition-colors duration-300 hover:bg-black/[0.015] max-lg:px-6"
             >
-              <button
-                type="button"
-                aria-expanded={isActive}
+              <summary
                 aria-controls={panelId}
-                onClick={() => setActive(isActive ? null : i)}
-                className="w-full flex items-center justify-between text-left cursor-pointer"
+                className="flex w-full cursor-pointer list-none items-center justify-between text-left marker:content-[''] [&::-webkit-details-marker]:hidden"
               >
                 <div className="flex items-baseline gap-10 max-lg:gap-5">
-                  <span className="font-[family-name:var(--font-dm-mono)] text-[.6rem] text-[var(--gold)]">
+                  <span className="font-[family-name:var(--font-dm-mono)] text-[.6rem] text-[var(--gold-text)]">
                     {s.n}
                   </span>
                   <div className="font-[family-name:var(--font-playfair)] text-[clamp(2rem,3vw,2.5rem)] text-[var(--ink)]">
@@ -97,20 +85,16 @@ export default function Services() {
                   </div>
                 </div>
                 <div
-                  className={`w-11 h-11 border border-black/[0.15] rounded-full flex items-center justify-center relative transition-all duration-400 ease-[cubic-bezier(.16,1,.3,1)]
-                    ${isActive ? "rotate-90 scale-90 bg-[var(--cream-dark)] border-transparent" : ""}
+                  className="service-toggle w-11 h-11 border border-black/[0.15] rounded-full flex items-center justify-center relative transition-all duration-400 ease-[cubic-bezier(.16,1,.3,1)]
                     before:content-[''] before:absolute before:bg-[var(--ink)] before:w-[14px] before:h-[1.5px] before:transition-transform before:duration-400 before:ease-[cubic-bezier(.16,1,.3,1)]
                     after:content-[''] after:absolute after:bg-[var(--ink)] after:w-[1.5px] after:h-[14px] after:transition-transform after:duration-400 after:ease-[cubic-bezier(.16,1,.3,1)]
-                    ${isActive ? "after:rotate-90 after:scale-0" : ""}
-                  `}
+                  "
                 ></div>
-              </button>
+              </summary>
 
               <div
                 id={panelId}
-                className={`grid transition-all duration-500 ease-[cubic-bezier(.16,1,.3,1)]
-                  ${isActive ? "[grid-template-rows:1fr] mt-10 opacity-100" : "[grid-template-rows:0fr] mt-0 opacity-0"}
-                `}
+                className="service-panel grid grid-rows-[0fr] opacity-0 transition-all duration-500 ease-[cubic-bezier(.16,1,.3,1)]"
               >
                 <div className="overflow-hidden">
                   <div className="grid grid-cols-2 gap-10 pl-[55px] max-lg:grid-cols-1 max-lg:pl-0 pb-2">
@@ -137,7 +121,7 @@ export default function Services() {
                   </div>
                 </div>
               </div>
-            </div>
+            </details>
           );
         })}
       </div>
@@ -152,16 +136,12 @@ export default function Services() {
             I&apos;ll help you choose the right scope, identify the pages that matter, and avoid paying for features your business does not need yet.
           </p>
         </div>
-        <MagneticButton>
-          <TrackedLink
-            href="#contact"
-            eventName="cta_clicked"
-            eventProperties={{ location: "services_after", label: "Get My Website Plan" }}
-            className="font-[family-name:var(--font-dm-mono)] text-[.62rem] tracking-[.14em] uppercase text-[var(--white)] bg-[var(--ink)] px-[30px] py-[14px] no-underline block transition-all duration-250 ease-[cubic-bezier(.16,1,.3,1)] hover:bg-[var(--gold)] hover:-translate-y-[2px]"
-          >
-            Get My Website Plan
-          </TrackedLink>
-        </MagneticButton>
+        <a
+          href="#contact"
+          className="font-[family-name:var(--font-dm-mono)] text-[.62rem] tracking-[.14em] uppercase text-[var(--white)] bg-[var(--ink)] px-[30px] py-[14px] no-underline block transition-all duration-250 ease-[cubic-bezier(.16,1,.3,1)] hover:bg-[var(--gold)] hover:-translate-y-[2px]"
+        >
+          Get My Website Plan
+        </a>
       </div>
     </section>
   );

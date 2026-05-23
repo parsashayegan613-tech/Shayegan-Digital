@@ -1,6 +1,3 @@
-"use client";
-
-import { useEffect, useRef } from "react";
 import Image from "next/image";
 
 export default function ParallaxImage({
@@ -16,59 +13,9 @@ export default function ParallaxImage({
   className?: string;
   imageClassName?: string;
 }) {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const imageWrapperRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const shouldReduceMotion =
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
-      window.matchMedia("(max-width: 768px)").matches;
-
-    if (shouldReduceMotion) {
-      if (imageWrapperRef.current) {
-        imageWrapperRef.current.style.transform = "scale(1.04)";
-      }
-      return;
-    }
-
-    let ticking = false;
-
-    const onScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          if (!containerRef.current || !imageWrapperRef.current) return;
-          const rect = containerRef.current.getBoundingClientRect();
-          const viewHeight = window.innerHeight;
-
-          // Only animate if visible in the viewport
-          if (rect.top <= viewHeight && rect.bottom >= 0) {
-            const progress = (viewHeight - rect.top) / (viewHeight + rect.height);
-            // Parallax shift from -8% to +8%; enough depth without constant motion noise.
-            const yShift = (progress - 0.5) * 16;
-
-            // Note: The scale(1.15) prevents the image edges from showing during the parallax shift
-            imageWrapperRef.current.style.transform = `translate3d(0, ${yShift}%, 0) scale(1.15)`;
-          }
-          ticking = false;
-        });
-        ticking = true;
-      }
-    };
-
-    // Trigger immediately to set initial position
-    onScroll();
-    
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
   return (
-    <div ref={containerRef} className={`relative overflow-hidden w-full h-full ${className}`}>
-      <div 
-        ref={imageWrapperRef} 
-        className="absolute inset-0 w-full h-full will-change-transform origin-center transition-transform duration-700 ease-[cubic-bezier(.16,1,.3,1)]"
-        style={{ transform: "scale(1.15)" }}
-      >
+    <div className={`relative overflow-hidden w-full h-full ${className}`}>
+      <div className="absolute inset-0 w-full h-full origin-center scale-[1.04]">
         <Image
           src={src}
           alt={alt}

@@ -4,7 +4,6 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import Footer from "@/components/Footer";
 import Nav from "@/components/Nav";
-import RevealObserver from "@/components/RevealObserver";
 import TrackedLink from "@/components/TrackedLink";
 import { caseStudies, getCaseStudy } from "@/lib/case-studies";
 import { siteConfig } from "@/lib/site";
@@ -130,7 +129,6 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
 
   return (
     <>
-      <RevealObserver />
       <Nav />
 
       <main className="bg-[var(--cream)] pt-[120px]">

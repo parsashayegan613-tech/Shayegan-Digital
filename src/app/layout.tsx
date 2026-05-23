@@ -1,29 +1,6 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Syne, DM_Mono } from "next/font/google";
-import Script from "next/script";
 import "./globals.css";
-import SmoothScroll from "@/components/SmoothScroll";
-import { Analytics } from "@vercel/analytics/react";
 import { faqItems, siteConfig } from "@/lib/site";
-
-const playfair = Playfair_Display({
-  variable: "--font-playfair",
-  subsets: ["latin"],
-  weight: ["400", "700", "900"],
-  style: ["normal", "italic"],
-});
-
-const syne = Syne({
-  variable: "--font-syne",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
-});
-
-const dmMono = DM_Mono({
-  variable: "--font-dm-mono",
-  subsets: ["latin"],
-  weight: ["300", "400"],
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -111,25 +88,36 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${playfair.variable} ${syne.variable} ${dmMono.variable}`}
-    >
+    <html lang="en">
       <body className="font-[family-name:var(--font-syne)]">
-        <Script
-          src={`https://www.googletagmanager.com/gtag/js?id=${siteConfig.gaMeasurementId}`}
-          strategy="lazyOnload"
+        {children}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (() => {
+                const measurementId = ${JSON.stringify(siteConfig.gaMeasurementId)};
+                let initialized = false;
+                const initializeAnalytics = () => {
+                  if (initialized || !measurementId) return;
+                  initialized = true;
+                  window.dataLayer = window.dataLayer || [];
+                  window.gtag = function gtag(){ window.dataLayer.push(arguments); };
+                  window.gtag('js', new Date());
+                  window.gtag('config', measurementId);
+                  const script = document.createElement('script');
+                  script.async = true;
+                  script.src = 'https://www.googletagmanager.com/gtag/js?id=' + measurementId;
+                  document.head.appendChild(script);
+                };
+                const interactionOptions = { once: true, passive: true };
+                window.addEventListener('pointerdown', initializeAnalytics, interactionOptions);
+                window.addEventListener('scroll', initializeAnalytics, interactionOptions);
+                window.addEventListener('keydown', initializeAnalytics, { once: true });
+                window.setTimeout(initializeAnalytics, 12000);
+              })();
+            `,
+          }}
         />
-        <Script id="google-analytics" strategy="lazyOnload">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){window.dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', '${siteConfig.gaMeasurementId}');
-          `}
-        </Script>
-        <SmoothScroll>{children}</SmoothScroll>
-        {process.env.VERCEL ? <Analytics /> : null}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

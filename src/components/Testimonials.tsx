@@ -1,7 +1,3 @@
-"use client";
-
-import { useState } from "react";
-
 const testimonials = [
   {
     t: "Parsa completely transformed our online presence. The new site is clean, fast, and we've already had patients mention finding us through Google. Exactly what we needed.",
@@ -18,11 +14,6 @@ const testimonials = [
 ];
 
 export default function Testimonials() {
-  const [current, setCurrent] = useState(0);
-
-  const prev = () => setCurrent((c) => Math.max(0, c - 1));
-  const next = () => setCurrent((c) => Math.min(testimonials.length - 1, c + 1));
-
   return (
     <section id="testi" className="bg-[var(--ink)] py-[140px] overflow-hidden max-lg:py-[100px]">
       <div className="px-[52px] mb-20 max-lg:px-6 rv">
@@ -32,13 +23,12 @@ export default function Testimonials() {
         </h2>
       </div>
 
-      <div className="relative w-full pl-[52px] max-lg:px-6 rv d2 overflow-visible">
-        <div className="flex gap-8">
+      <div className="relative w-full px-[52px] max-lg:px-6 rv d2 overflow-visible">
+        <div className="grid grid-cols-2 gap-8 max-lg:grid-cols-1">
           {testimonials.map((t, i) => (
             <div 
               key={i} 
-              className="w-[880px] min-w-[880px] p-[60px] bg-white/[0.04] border border-white/[0.07] flex flex-col justify-between transition-all duration-700 ease-[cubic-bezier(.16,1,.3,1)] hover:border-[rgba(201,169,110,0.3)] max-lg:w-[calc(100vw-48px)] max-lg:min-w-[calc(100vw-48px)] max-lg:p-[40px_30px]"
-              style={{ transform: `translateX(calc(${current} * -100% - ${current * 32}px))` }}
+              className="p-[60px] bg-white/[0.04] border border-white/[0.07] flex flex-col justify-between transition-all duration-700 ease-[cubic-bezier(.16,1,.3,1)] hover:border-[rgba(201,169,110,0.3)] max-lg:p-[40px_30px]"
             >
               <div>
                 <div className="text-[var(--gold)] text-[1.1rem] mb-8">★★★★★</div>
@@ -56,33 +46,6 @@ export default function Testimonials() {
                 </div>
               </div>
             </div>
-          ))}
-        </div>
-      </div>
-
-      <div className="px-[52px] pt-[52px] flex gap-4 items-center max-lg:px-6 rv d3">
-        <button 
-          onClick={prev} 
-          disabled={current === 0}
-          className="w-11 h-11 border border-white/[0.15] bg-transparent text-[var(--white)] rounded-none cursor-pointer flex items-center justify-center font-[family-name:var(--font-dm-mono)] transition-all duration-300 hover:bg-[var(--white)] hover:text-[var(--ink)] disabled:opacity-20 disabled:pointer-events-none hc"
-          aria-label="Previous testimonial"
-        >
-          &lt;
-        </button>
-        <button 
-          onClick={next} 
-          disabled={current === testimonials.length - 1}
-          className="w-11 h-11 border border-white/[0.15] bg-transparent text-[var(--white)] rounded-none cursor-pointer flex items-center justify-center font-[family-name:var(--font-dm-mono)] transition-all duration-300 hover:bg-[var(--white)] hover:text-[var(--ink)] disabled:opacity-20 disabled:pointer-events-none hc"
-          aria-label="Next testimonial"
-        >
-          &gt;
-        </button>
-        <div className="flex gap-2 ml-5">
-          {testimonials.map((_, i) => (
-            <div 
-              key={i} 
-              className={`h-[6px] rounded-full transition-all duration-400 ${i === current ? 'bg-[var(--gold)] w-[20px]' : 'bg-white/20 w-[6px]'}`}
-            />
           ))}
         </div>
       </div>

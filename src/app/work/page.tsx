@@ -4,7 +4,6 @@ import Footer from "@/components/Footer";
 import Contact from "@/components/Contact";
 import Marquee from "@/components/Marquee";
 import Nav from "@/components/Nav";
-import RevealObserver from "@/components/RevealObserver";
 import TrackedLink from "@/components/TrackedLink";
 import { caseStudies } from "@/lib/case-studies";
 import { siteConfig } from "@/lib/site";
@@ -31,7 +30,6 @@ export const metadata: Metadata = {
 export default function WorkPage() {
   return (
     <>
-      <RevealObserver />
       <Nav />
       <Marquee />
 

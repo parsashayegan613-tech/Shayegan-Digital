@@ -5,7 +5,6 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import Marquee from "@/components/Marquee";
 import Nav from "@/components/Nav";
-import RevealObserver from "@/components/RevealObserver";
 import TrackedLink from "@/components/TrackedLink";
 import { siteConfig } from "@/lib/site";
 
@@ -40,7 +39,6 @@ const founderSignals = [
 export default function AboutPage() {
   return (
     <>
-      <RevealObserver />
       <Nav />
       <Marquee />
 

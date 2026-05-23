@@ -5,7 +5,6 @@ import Footer from "@/components/Footer";
 import Marquee from "@/components/Marquee";
 import Nav from "@/components/Nav";
 import Pricing from "@/components/Pricing";
-import RevealObserver from "@/components/RevealObserver";
 import TrackedLink from "@/components/TrackedLink";
 import { siteConfig } from "@/lib/site";
 
@@ -31,7 +30,6 @@ export const metadata: Metadata = {
 export default function PricingPage() {
   return (
     <>
-      <RevealObserver />
       <Nav />
       <Marquee />
 

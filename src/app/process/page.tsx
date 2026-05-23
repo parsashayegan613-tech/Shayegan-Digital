@@ -5,7 +5,6 @@ import Footer from "@/components/Footer";
 import Marquee from "@/components/Marquee";
 import Nav from "@/components/Nav";
 import Process from "@/components/Process";
-import RevealObserver from "@/components/RevealObserver";
 import TrackedLink from "@/components/TrackedLink";
 import { siteConfig } from "@/lib/site";
 
@@ -40,7 +39,6 @@ const outcomes = [
 export default function ProcessPage() {
   return (
     <>
-      <RevealObserver />
       <Nav />
       <Marquee />
 

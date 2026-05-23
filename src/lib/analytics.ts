@@ -7,11 +7,7 @@ export type EventProperties = Record<string, EventValue>;
 
 declare global {
   interface Window {
-    gtag?: (
-      command: "event",
-      eventName: string,
-      eventParameters?: Record<string, string | number | boolean>
-    ) => void;
+    gtag?: (...args: unknown[]) => void;
   }
 }
 

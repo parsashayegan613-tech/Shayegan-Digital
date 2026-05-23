@@ -1,7 +1,4 @@
-"use client";
-
 import Image from "next/image";
-import TrackedLink from "./TrackedLink";
 import { caseStudies } from "@/lib/case-studies";
 
 export default function Portfolio() {
@@ -76,24 +73,20 @@ export default function Portfolio() {
               </ul>
               
               <div className="mt-auto flex flex-wrap items-center gap-x-6 gap-y-3">
-                <TrackedLink
+                <a
                   href={`/case-studies/${p.slug}`}
-                  eventName="portfolio_clicked"
-                  eventProperties={{ project: p.title, location: "featured_work", destination: "case_study" }}
                   className="inline-flex items-center gap-2 font-[family-name:var(--font-dm-mono)] text-[.62rem] tracking-[.12em] uppercase text-white/45 transition-colors duration-300 hover:text-[var(--gold)]"
                 >
                   Read Case Study <span className="text-[.8rem] transition-transform duration-300 group-hover:translate-x-1">→</span>
-                </TrackedLink>
-                <TrackedLink
+                </a>
+                <a
                   href={p.liveUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  eventName="portfolio_clicked"
-                  eventProperties={{ project: p.title, location: "featured_work", destination: "live_site" }}
                   className="inline-flex items-center gap-2 font-[family-name:var(--font-dm-mono)] text-[.62rem] tracking-[.12em] uppercase text-[var(--gold)] transition-colors duration-300 hover:text-white"
                 >
                   View Live Website <span className="text-[.8rem] transition-transform duration-300 group-hover:translate-x-1">↗</span>
-                </TrackedLink>
+                </a>
               </div>
             </div>
           </article>
@@ -110,14 +103,12 @@ export default function Portfolio() {
             I&apos;ll show you what your current site is missing, which pages should drive calls, and what proof needs to be visible before someone books.
           </p>
         </div>
-        <TrackedLink
+        <a
           href="#contact"
-          eventName="cta_clicked"
-          eventProperties={{ location: "portfolio_after", label: "Plan My Website" }}
           className="shrink-0 font-[family-name:var(--font-dm-mono)] text-[.62rem] tracking-[.14em] uppercase text-[var(--ink)] bg-[var(--gold)] px-[30px] py-[14px] no-underline transition-all duration-250 ease-[cubic-bezier(.16,1,.3,1)] hover:bg-white hover:-translate-y-[2px]"
         >
           Plan My Website
-        </TrackedLink>
+        </a>
       </div>
     </section>
   );

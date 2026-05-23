@@ -1,5 +1,3 @@
-import MagneticButton from "./MagneticButton";
-import TrackedLink from "./TrackedLink";
 import { faqItems } from "@/lib/site";
 
 const tiers = [
@@ -128,11 +126,8 @@ export default function Pricing() {
               ))}
             </ul>
 
-            <MagneticButton>
-              <TrackedLink
+            <a
                 href="#contact"
-                eventName="cta_clicked"
-                eventProperties={{ location: "pricing", label: `Get Started - ${t.name}`, plan: t.name }}
                 className={`font-[family-name:var(--font-dm-mono)] text-[.6rem] tracking-[.14em] uppercase px-[28px] py-[14px] no-underline block text-center transition-all duration-250 ease-[cubic-bezier(.16,1,.3,1)] hover:-translate-y-[2px]
                   ${t.dark
                     ? "bg-[var(--gold)] text-[var(--ink)] hover:bg-white"
@@ -141,8 +136,7 @@ export default function Pricing() {
                 `}
               >
                 {t.highlight ? "Choose Growth Site" : "Get Started"}
-              </TrackedLink>
-            </MagneticButton>
+            </a>
           </div>
         ))}
       </div>
@@ -161,7 +155,7 @@ export default function Pricing() {
             <div key={i} className="border border-[var(--ink-faint)] bg-[var(--white)] p-8 relative transition-colors duration-300 hover:bg-black/[0.02]">
               <div className="flex justify-between items-start mb-4">
                 <p className="font-[family-name:var(--font-dm-mono)] text-[.58rem] tracking-[.14em] uppercase text-[var(--ink-light)]">{addon.tag}</p>
-                <div className="font-[family-name:var(--font-playfair)] font-bold text-lg text-[var(--gold)]">{addon.price}</div>
+                <div className="font-[family-name:var(--font-playfair)] font-bold text-lg text-[var(--gold-text)]">{addon.price}</div>
               </div>
               <h4 className="font-[family-name:var(--font-playfair)] text-[1.4rem] font-bold text-[var(--ink)] mb-2">{addon.name}</h4>
               <p className="text-[.78rem] leading-[1.75] text-[var(--ink-mid)] max-w-[220px]">{addon.desc}</p>
@@ -200,14 +194,12 @@ export default function Pricing() {
       <div className="px-[52px] max-lg:px-6 mt-16 rv d4">
         <p className="font-[family-name:var(--font-dm-mono)] text-[.58rem] tracking-[.12em] text-[var(--ink-light)] text-center">
           All plans include a free 30-minute strategy call. Need something custom?{" "}
-          <TrackedLink
+          <a
             href="#contact"
-            eventName="cta_clicked"
-            eventProperties={{ location: "pricing_note", label: "Let's talk" }}
-            className="text-[var(--gold)] underline underline-offset-2 hover:text-[var(--ink)] transition-colors"
+            className="text-[var(--gold-text)] underline underline-offset-2 hover:text-[var(--ink)] transition-colors"
           >
             Let&apos;s talk.
-          </TrackedLink>
+          </a>
         </p>
       </div>
     </section>
