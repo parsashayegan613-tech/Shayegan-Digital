@@ -118,9 +118,9 @@ export default function RootLayout({
       <body className="font-[family-name:var(--font-syne)]">
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${siteConfig.gaMeasurementId}`}
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
-        <Script id="google-analytics" strategy="afterInteractive">
+        <Script id="google-analytics" strategy="lazyOnload">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){window.dataLayer.push(arguments);}
@@ -129,7 +129,7 @@ export default function RootLayout({
           `}
         </Script>
         <SmoothScroll>{children}</SmoothScroll>
-        <Analytics />
+        {process.env.VERCEL ? <Analytics /> : null}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

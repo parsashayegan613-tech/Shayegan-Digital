@@ -13,7 +13,7 @@ const links = [
   { label: "Process", href: "/process" },
   { label: "Pricing", href: "/pricing" },
   { label: "About", href: "/about" },
-  { label: "Contact", href: "#contact" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export default function Nav() {
@@ -83,7 +83,7 @@ export default function Nav() {
           <div className="max-lg:hidden">
             <MagneticButton>
               <TrackedLink
-                href={`${anchorPrefix}#contact`}
+                href="/contact"
                 eventName="cta_clicked"
                 eventProperties={{ location: "nav", label: "Free Strategy Call" }}
                 className="block font-[family-name:var(--font-dm-mono)] text-[.6rem] tracking-[.14em] uppercase text-[var(--white)] bg-[var(--ink)] px-[22px] py-[10px] transition-colors duration-250 hover:bg-[var(--gold)]"
@@ -139,7 +139,7 @@ export default function Nav() {
           ))}
           <li className="mt-6 flex justify-center w-full overflow-hidden p-2 max-sm:mt-4">
             <TrackedLink
-              href={`${anchorPrefix}#contact`}
+              href="/contact"
               onClick={() => setIsOpen(false)}
               eventName="cta_clicked"
               eventProperties={{ location: "mobile_nav", label: "Free Strategy Session" }}

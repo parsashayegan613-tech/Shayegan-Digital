@@ -17,7 +17,7 @@ export default function TrustedBy() {
           {clients.map((client, index) => (
             <div key={client} className="contents">
               {index > 0 ? <span className="w-[1px] h-5 bg-black/[0.1] max-sm:hidden"></span> : null}
-              <span className="font-[family-name:var(--font-playfair)] text-[1.1rem] font-bold text-[var(--ink)] opacity-40 transition-opacity duration-300 hover:opacity-80">
+              <span className="font-[family-name:var(--font-playfair)] text-[1.1rem] font-bold text-[var(--ink-mid)] transition-colors duration-300 hover:text-[var(--ink)]">
                 {client}
               </span>
             </div>

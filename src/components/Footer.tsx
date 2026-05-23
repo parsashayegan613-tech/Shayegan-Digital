@@ -7,7 +7,7 @@ import TrackedLink from "./TrackedLink";
 
 export default function Footer() {
   const pathname = usePathname();
-  const contactHref = pathname === "/" ? "#contact" : "/#contact";
+  const contactHref = pathname === "/" ? "#contact" : "/contact";
 
   return (
     <footer className="bg-[var(--ink)] text-[var(--white)] pt-[100px] relative overflow-hidden z-10">
@@ -38,14 +38,14 @@ export default function Footer() {
 
       {/* Massive Typography Decoration */}
       <div className="w-full flex justify-center px-[2vw] pb-6 rv d2 select-none cursor-blend">
-        <h1 className="font-[family-name:var(--font-playfair)] text-[clamp(3.8rem,15vw,20rem)] font-black tracking-[-.04em] leading-[0.8] text-center text-white/[0.06] w-full flex justify-between uppercase">
-          <SplitText delay={200} stagger={50}>Shayegan</SplitText>
-          <SplitText className="italic font-normal ml-8 text-white/[0.07]" delay={500} stagger={50}>Digital</SplitText>
-        </h1>
+        <div aria-hidden="true" className="font-[family-name:var(--font-playfair)] text-[clamp(3.8rem,15vw,20rem)] font-black tracking-[-.04em] leading-[0.8] text-center text-white/[0.06] w-full flex justify-between uppercase">
+          <SplitText delay={200} includeScreenReaderText={false} stagger={50}>Shayegan</SplitText>
+          <SplitText className="italic font-normal ml-8 text-white/[0.07]" delay={500} includeScreenReaderText={false} stagger={50}>Digital</SplitText>
+        </div>
       </div>
 
       <div className="flex justify-center items-center px-[52px] py-8 border-t border-[rgba(255,255,255,0.06)] max-lg:px-[24px]">
-        <div className="font-[family-name:var(--font-dm-mono)] text-[.62rem] text-white/42 tracking-[.08em] text-center">
+        <div className="font-[family-name:var(--font-dm-mono)] text-[.62rem] text-white/60 tracking-[.08em] text-center">
           © {new Date().getFullYear()} SHAYEGAN DIGITAL. ALL RIGHTS RESERVED.
         </div>
       </div>

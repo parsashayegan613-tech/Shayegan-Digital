@@ -2,7 +2,6 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import MagneticButton from "./MagneticButton";
-import SplitText from "./SplitText";
 import TrackedLink from "./TrackedLink";
 
 const rotatingHeroWords = ["websites", "funnels", "systems", "landing pages"];
@@ -59,21 +58,23 @@ export default function Hero() {
           aria-label="Custom websites that book calls."
           className="cursor-blend font-[family-name:var(--font-playfair)] text-[clamp(3.8rem,7.5vw,8rem)] font-black leading-[.92] tracking-[-.03em] text-[var(--ink)] max-lg:text-[clamp(3rem,12vw,5.5rem)] max-sm:text-[clamp(2.6rem,14vw,4rem)]"
         >
-          <span aria-hidden="true" className="block overflow-clip">
-            <SplitText className="block" delay={350} stagger={32}>Custom</SplitText>
+          <span aria-hidden="true" className="block">
+            Custom
           </span>
+          {" "}
           <span aria-hidden="true" className="relative block h-[0.98em] overflow-hidden whitespace-nowrap">
             <span
               key={rotatingHeroWords[heroWordIndex]}
-              className="absolute inset-0 block animate-[wordCycle_.68s_cubic-bezier(.16,1,.3,1)_both]"
+              className={`absolute inset-0 block ${heroWordIndex === 0 ? "" : "animate-[wordCycle_.68s_cubic-bezier(.16,1,.3,1)_both]"}`}
             >
               <span className="font-[family-name:var(--font-playfair)] italic text-[var(--gold)]">
                 {rotatingHeroWords[heroWordIndex]}
               </span>
             </span>
           </span>
-          <span aria-hidden="true" className="block overflow-clip">
-            <SplitText className="block" delay={650} stagger={32}>that book calls.</SplitText>
+          {" "}
+          <span aria-hidden="true" className="block">
+            that book calls.
           </span>
         </h1>
         <p className="mt-10 text-[.88rem] font-normal leading-[1.8] text-[var(--ink-mid)] max-w-[400px] opacity-0 animate-[fup_.8s_cubic-bezier(.16,1,.3,1)_.9s_forwards]">
@@ -110,13 +111,13 @@ export default function Hero() {
             ["Tracking", "GA4", "calls & CTA clicks"],
           ].map(([label, value, detail]) => (
             <div key={label} className="border border-[var(--ink-faint)] bg-[var(--white)] px-4 py-4 shadow-[0_14px_35px_rgba(12,12,10,0.045)]">
-              <div className="font-[family-name:var(--font-dm-mono)] text-[.54rem] tracking-[.14em] uppercase text-[var(--gold)] mb-2">
+              <div className="font-[family-name:var(--font-dm-mono)] text-[.54rem] tracking-[.14em] uppercase text-[var(--gold-text)] mb-2">
                 {label}
               </div>
               <div className="font-[family-name:var(--font-playfair)] text-[1.35rem] font-bold leading-none text-[var(--ink)]">
                 {value}
               </div>
-              <div className="mt-2 font-[family-name:var(--font-dm-mono)] text-[.54rem] tracking-[.08em] uppercase text-[var(--ink-light)]">
+              <div className="mt-2 font-[family-name:var(--font-dm-mono)] text-[.54rem] tracking-[.08em] uppercase text-[var(--ink-mid)]">
                 {detail}
               </div>
             </div>

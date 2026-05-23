@@ -115,7 +115,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
             "@type": "ListItem",
             "position": 2,
             "name": "Case Studies",
-            "item": `${siteConfig.url}/#featured-work`,
+            "item": `${siteConfig.url}/work`,
           },
           {
             "@type": "ListItem",
@@ -137,7 +137,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
         <section className="px-[52px] pb-[96px] max-lg:px-6 max-lg:pb-[72px]">
           <div className="mb-10 rv">
             <Link
-              href="/#featured-work"
+              href="/work"
               className="font-[family-name:var(--font-dm-mono)] text-[.62rem] tracking-[.14em] uppercase text-[var(--ink-light)] transition-colors hover:text-[var(--gold)]"
             >
               ← Back to featured work
@@ -264,7 +264,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
             </div>
             <div className="flex flex-col gap-3">
               <TrackedLink
-                href="/#contact"
+                href="/contact"
                 eventName="cta_clicked"
                 eventProperties={{ location: "case_study", label: "Book a strategy call", project: study.title }}
                 className="inline-flex items-center justify-center bg-[var(--gold)] px-8 py-5 font-[family-name:var(--font-dm-mono)] text-[.65rem] tracking-[.14em] uppercase text-[var(--ink)] transition-colors hover:bg-[var(--white)]"

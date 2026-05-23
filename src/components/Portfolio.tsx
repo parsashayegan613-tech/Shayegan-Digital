@@ -33,7 +33,6 @@ export default function Portfolio() {
                 src={p.image}
                 alt={p.imageAlt}
                 fill
-                priority
                 className="object-cover object-top transition-transform duration-700 ease-[cubic-bezier(.16,1,.3,1)] group-hover:scale-[1.03]"
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />

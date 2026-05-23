@@ -6,9 +6,10 @@
     --cream-dark: #edeae2;
     --ink: #0c0c0a;
     --ink-mid: #3a3a35;
-    --ink-light: #8a8a80;
+    --ink-light: #5f5f58;
     --ink-faint: #d4d0c8;
     --gold: #c9a96e;
+    --gold-text: #8a6326;
     --white: #fdfcf9;
   }
 }
@@ -51,6 +52,11 @@ p {
   letter-spacing: 0.16em;
   line-height: 1.45;
   text-transform: uppercase;
+  color: var(--gold-text);
+}
+
+[class*="bg-[var(--ink)]"] .eyebrow,
+footer .eyebrow {
   color: var(--gold);
 }
 

@@ -23,16 +23,18 @@ export default function Home() {
       <SectionDepthTracker />
       <Nav />
       <Marquee />
-      <Hero />
-      <TrustedBy />
-      <Stats />
-      <Services />
-      <Portfolio />
-      <Testimonials />
-      <Process />
-      <Pricing />
-      <About />
-      <Contact />
+      <main>
+        <Hero />
+        <TrustedBy />
+        <Stats />
+        <Services />
+        <Portfolio />
+        <Testimonials />
+        <Process />
+        <Pricing />
+        <About />
+        <Contact />
+      </main>
       <Footer />
     </>
   );

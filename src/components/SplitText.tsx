@@ -6,6 +6,7 @@ interface SplitTextProps {
   children: string;
   className?: string;
   delay?: number;
+  includeScreenReaderText?: boolean;
   stagger?: number;
 }
 
@@ -13,6 +14,7 @@ export default function SplitText({
   children,
   className = "",
   delay = 0,
+  includeScreenReaderText = true,
   stagger = 40,
 }: SplitTextProps) {
   const ref = useRef<HTMLSpanElement>(null);
@@ -42,7 +44,7 @@ export default function SplitText({
 
   return (
     <span ref={ref} className={`st-wrap ${className}`}>
-      <span className="sr-only">{children}</span>
+      {includeScreenReaderText && <span className="sr-only">{children}</span>}
       <span aria-hidden="true">
         {words.map((word, wi) => (
           <span key={wi} className="st-word">
