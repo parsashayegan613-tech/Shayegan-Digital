@@ -10,7 +10,7 @@ import TrackedLink from "./TrackedLink";
 const links = [
   { label: "Services", href: "/services/web-design-edmonton" },
   { label: "Work", href: "/work" },
-  { label: "Process", href: "#process" },
+  { label: "Process", href: "/process" },
   { label: "Pricing", href: "/pricing" },
   { label: "About", href: "#about" },
   { label: "Contact", href: "#contact" },
