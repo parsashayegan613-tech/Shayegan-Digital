@@ -8,10 +8,10 @@ import MagneticButton from "./MagneticButton";
 import TrackedLink from "./TrackedLink";
 
 const links = [
-  { label: "Services", href: "#services" },
-  { label: "Work", href: "#featured-work" },
+  { label: "Services", href: "/services/web-design-edmonton" },
+  { label: "Work", href: "/work" },
   { label: "Process", href: "#process" },
-  { label: "Pricing", href: "#pricing" },
+  { label: "Pricing", href: "/pricing" },
   { label: "About", href: "#about" },
   { label: "Contact", href: "#contact" },
 ];
@@ -56,14 +56,25 @@ export default function Nav() {
         <ul className="flex gap-6 list-none max-lg:hidden">
           {links.map((item) => (
             <li key={item.label}>
-              <a
-                href={`${anchorPrefix}${item.href}`}
-                onClick={(event) => handleAnchorClick(event, item.href)}
-                className="font-[family-name:var(--font-dm-mono)] text-[.6rem] tracking-[.18em] uppercase text-[var(--ink-light)] transition-colors duration-200 relative group hover:text-[var(--ink)]"
-              >
-                {item.label}
-                <span className="absolute -bottom-[3px] left-0 w-0 h-[1px] bg-[var(--gold)] transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:w-full" />
-              </a>
+              {item.href.startsWith("#") ? (
+                <a
+                  href={`${anchorPrefix}${item.href}`}
+                  onClick={(event) => handleAnchorClick(event, item.href)}
+                  className="font-[family-name:var(--font-dm-mono)] text-[.6rem] tracking-[.18em] uppercase text-[var(--ink-light)] transition-colors duration-200 relative group hover:text-[var(--ink)]"
+                >
+                  {item.label}
+                  <span className="absolute -bottom-[3px] left-0 w-0 h-[1px] bg-[var(--gold)] transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:w-full" />
+                </a>
+              ) : (
+                <Link
+                  href={item.href}
+                  onClick={() => setIsOpen(false)}
+                  className="font-[family-name:var(--font-dm-mono)] text-[.6rem] tracking-[.18em] uppercase text-[var(--ink-light)] transition-colors duration-200 relative group hover:text-[var(--ink)]"
+                >
+                  {item.label}
+                  <span className="absolute -bottom-[3px] left-0 w-0 h-[1px] bg-[var(--gold)] transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:w-full" />
+                </Link>
+              )}
             </li>
           ))}
         </ul>
@@ -105,14 +116,25 @@ export default function Nav() {
         <ul className="flex min-h-full flex-col items-center justify-center gap-7 list-none p-0 m-0 max-sm:gap-5">
           {links.map((item, i) => (
             <li key={item.label} className="overflow-hidden p-2">
-              <a
-                href={`${anchorPrefix}${item.href}`}
-                onClick={(event) => handleAnchorClick(event, item.href)}
-                style={{ transitionDelay: `${isOpen ? 100 + (i * 60) : 0}ms` }}
-                className={`block font-[family-name:var(--font-playfair)] text-[clamp(2.1rem,11vw,2.6rem)] font-bold leading-[1.05] text-[var(--white)] transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${isOpen ? 'translate-y-0' : 'translate-y-[120%]'}`}
-              >
-                {item.label}
-              </a>
+              {item.href.startsWith("#") ? (
+                <a
+                  href={`${anchorPrefix}${item.href}`}
+                  onClick={(event) => handleAnchorClick(event, item.href)}
+                  style={{ transitionDelay: `${isOpen ? 100 + (i * 60) : 0}ms` }}
+                  className={`block font-[family-name:var(--font-playfair)] text-[clamp(2.1rem,11vw,2.6rem)] font-bold leading-[1.05] text-[var(--white)] transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${isOpen ? 'translate-y-0' : 'translate-y-[120%]'}`}
+                >
+                  {item.label}
+                </a>
+              ) : (
+                <Link
+                  href={item.href}
+                  onClick={() => setIsOpen(false)}
+                  style={{ transitionDelay: `${isOpen ? 100 + (i * 60) : 0}ms` }}
+                  className={`block font-[family-name:var(--font-playfair)] text-[clamp(2.1rem,11vw,2.6rem)] font-bold leading-[1.05] text-[var(--white)] transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${isOpen ? 'translate-y-0' : 'translate-y-[120%]'}`}
+                >
+                  {item.label}
+                </Link>
+              )}
             </li>
           ))}
           <li className="mt-6 flex justify-center w-full overflow-hidden p-2 max-sm:mt-4">

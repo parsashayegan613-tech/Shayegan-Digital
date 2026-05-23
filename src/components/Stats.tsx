@@ -39,7 +39,7 @@ function CountUp({ target }: { target: number }) {
 }
 
 const stats = [
-  { target: 3, suffix: "+", label: "Live client\nwebsites" },
+  { target: 5, suffix: "+", label: "Live client\nwebsites" },
   { target: 48, suffix: "hr", label: "Proposal\nturnaround" },
   { target: 100, suffix: "%", label: "Custom-built\nno templates" },
 ];

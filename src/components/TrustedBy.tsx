@@ -1,5 +1,11 @@
 export default function TrustedBy() {
-  const clients = ["Nand Builders", "Village IDA Pharmacy", "Invitvo Pharmaceuticals"];
+  const clients = [
+    "Big Moose Driving Range",
+    "MZ Fit Club",
+    "Nand Builders",
+    "Village IDA Pharmacy",
+    "Invitvo Pharmaceuticals",
+  ];
 
   return (
     <section className="py-[50px] border-b border-black/[0.06]">
