@@ -9,7 +9,7 @@ export default function Hero() {
       ></div>
 
       <div className="flex flex-col justify-center px-[52px] py-[60px] pb-[80px] relative z-2 max-lg:px-6 max-lg:py-10 max-lg:pb-16">
-        <p className="eyebrow inline-flex items-center gap-[10px] mb-9 opacity-0 animate-[fup_.7s_cubic-bezier(.16,1,.3,1)_.2s_forwards] before:content-[''] before:w-7 before:h-[1px] before:bg-[var(--gold)]">
+        <p className="eyebrow inline-flex items-center gap-[10px] mb-9 before:content-[''] before:w-7 before:h-[1px] before:bg-[var(--gold)]">
           Edmonton Digital Agency &nbsp;/&nbsp; Local Expertise
         </p>
         <h1
@@ -27,11 +27,11 @@ export default function Hero() {
             that book calls.
           </span>
         </h1>
-        <p className="mt-10 text-[.88rem] font-normal leading-[1.8] text-[var(--ink-mid)] max-w-[400px] opacity-0 animate-[fup_.8s_cubic-bezier(.16,1,.3,1)_.9s_forwards]">
+        <p className="mt-10 text-[.88rem] font-normal leading-[1.8] text-[var(--ink-mid)] max-w-[400px]">
           High-performance websites for Edmonton businesses that need stronger local trust, clearer calls to action, and tracked leads from Google, starting at $800.
           Custom-built from scratch. No templates. No hidden fees. No ghosting after launch.
         </p>
-        <div className="mt-11 flex items-center gap-6 flex-wrap opacity-0 animate-[fup_.8s_cubic-bezier(.16,1,.3,1)_1.05s_forwards]">
+        <div className="mt-11 flex items-center gap-6 flex-wrap">
           <a
             href="#contact"
             className="font-[family-name:var(--font-dm-mono)] text-[.65rem] tracking-[.14em] uppercase text-[var(--white)] bg-[var(--ink)] px-[34px] py-[15px] no-underline block transition-all duration-250 ease-[cubic-bezier(.16,1,.3,1)] hover:bg-[var(--gold)] hover:-translate-y-[2px]"
@@ -46,7 +46,7 @@ export default function Hero() {
           </a>
         </div>
 
-        <div className="mt-9 hidden max-lg:grid grid-cols-3 gap-2 opacity-0 animate-[fup_.8s_cubic-bezier(.16,1,.3,1)_1.18s_forwards] max-sm:grid-cols-1">
+        <div className="mt-9 hidden max-lg:grid grid-cols-3 gap-2 max-sm:grid-cols-1">
           {[
             ["From", "$800", "fixed launch pricing"],
             ["Speed", "1-2 wks", "typical delivery"],
